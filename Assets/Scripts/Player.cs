@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
     {
         MovePlayer();
         ShootLaser();
+        // Use this for drooping mines in the water.
+        if(Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Right mouse pressed.");
+        }
     }
 
     private void MovePlayer()
@@ -50,7 +55,7 @@ public class Player : MonoBehaviour
 
     void ShootLaser()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _canShoot)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && _canShoot)
         {
             _canShoot = false;
             Instantiate(_laserPrefab, _laserStartLoc.position, transform.rotation);
