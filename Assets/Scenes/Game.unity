@@ -446,4 +446,4 @@ MonoBehaviour:
   _speed: 5
   _laserPrefab: {fileID: 2885994802882892262, guid: c959e7ad03b4eb84f9e286cbf2b7eb85, type: 3}
   _laserStartLoc: {fileID: 1339591432}
-  _laserCooldown: 0.5
+  _laserCooldown: 0.15
