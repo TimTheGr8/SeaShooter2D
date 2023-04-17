@@ -301,6 +301,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1339591431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1339591432}
+  m_Layer: 0
+  m_Name: Laser Start Location
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1339591432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339591431}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.712, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1946564927}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1946564923
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +426,8 @@ Transform:
   m_LocalPosition: {x: -9.17, y: -3.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1339591432}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -413,6 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _laserPrefab: {fileID: 2885994802882892262, guid: c959e7ad03b4eb84f9e286cbf2b7eb85, type: 3}
+  _laserStartLoc: {fileID: 1339591432}
 --- !u!1001 &2885994803397723200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -424,17 +457,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser
       objectReference: {fileID: 0}
+    - target: {fileID: 2885994802882892262, guid: c959e7ad03b4eb84f9e286cbf2b7eb85, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2885994802882892266, guid: c959e7ad03b4eb84f9e286cbf2b7eb85, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2885994802882892266, guid: c959e7ad03b4eb84f9e286cbf2b7eb85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.68
+      value: -9.16
       objectReference: {fileID: 0}
     - target: {fileID: 2885994802882892266, guid: c959e7ad03b4eb84f9e286cbf2b7eb85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.76
+      value: -2.88
       objectReference: {fileID: 0}
     - target: {fileID: 2885994802882892266, guid: c959e7ad03b4eb84f9e286cbf2b7eb85, type: 3}
       propertyPath: m_LocalPosition.z
