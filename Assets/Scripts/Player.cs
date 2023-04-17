@@ -32,7 +32,8 @@ public class Player : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
+        // Flip movement directions so that the player moves the way intended
+        Vector3 direction = new Vector3(-verticalInput, horizontalInput, 0);
         transform.Translate(direction * _speed * Time.deltaTime);
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9.0f, -3.0f), transform.position.y, 0);
@@ -52,7 +53,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && _canShoot)
         {
             _canShoot = false;
-            Instantiate(_laserPrefab, _laserStartLoc.position, Quaternion.identity);
+            Instantiate(_laserPrefab, _laserStartLoc.position, transform.rotation);
             StartCoroutine(LaserCoolDown());
         }
     }
