@@ -7,11 +7,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _speed = 5.0f;
     [SerializeField]
-    private GameObject _laserPrefab;
+    private GameObject _projectilePrefab;
     [SerializeField]
-    private Transform _laserStartLoc;
+    private Transform _projectileStartLoc;
     [SerializeField]
-    private float _laserCooldown = 0.5f;
+    private float _projectileCooldown = 0.5f;
     private bool _canShoot = true;
 
     // Start is called before the first frame update
@@ -58,14 +58,14 @@ public class Player : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && _canShoot)
         {
             _canShoot = false;
-            Instantiate(_laserPrefab, _laserStartLoc.position, transform.rotation);
+            Instantiate(_projectilePrefab, _projectileStartLoc.position, transform.rotation);
             StartCoroutine(LaserCoolDown());
         }
     }
 
     IEnumerator LaserCoolDown ()
     {
-        yield return new WaitForSeconds(_laserCooldown);
+        yield return new WaitForSeconds(_projectileCooldown);
         _canShoot = true;
     }
 }

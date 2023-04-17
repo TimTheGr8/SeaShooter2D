@@ -311,7 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1339591432}
   m_Layer: 0
-  m_Name: Laser Start Location
+  m_Name: Projectile Start Location
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -444,6 +444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  _laserPrefab: {fileID: 2885994802882892262, guid: c959e7ad03b4eb84f9e286cbf2b7eb85, type: 3}
-  _laserStartLoc: {fileID: 1339591432}
-  _laserCooldown: 0.15
+  _projectilePrefab: {fileID: 3987879931589445352, guid: 6af145d54880c034a95975675d2ffc16, type: 3}
+  _projectileStartLoc: {fileID: 1339591432}
+  _projectileCooldown: 0.5
