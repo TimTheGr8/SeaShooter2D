@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         // Take current position and assign it a start position
-        transform.position = new Vector3(0, 0, 0);
+        transform.position = new Vector3(-7, 0, 0);
     }
 
     // Update is called once per frame
@@ -35,15 +35,15 @@ public class Player : MonoBehaviour
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         transform.Translate(direction * _speed * Time.deltaTime);
 
-        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 0), 0);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9.0f, -3.0f), transform.position.y, 0);
 
-        if (transform.position.x >= 11)
+        if (transform.position.y >= 7.5f)
         {
-            transform.position = new Vector3(-11, transform.position.y, 0);
+            transform.position = new Vector3(transform.position.x, -5.5f, 0);
         }
-        else if (transform.position.x <= -11)
+        else if (transform.position.y <= -5.5f)
         {
-            transform.position = new Vector3(11, transform.position.y, 0);
+            transform.position = new Vector3(transform.position.x, 7.5f, 0);
         }
     }
 
