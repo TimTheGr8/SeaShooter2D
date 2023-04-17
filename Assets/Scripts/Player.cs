@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     private GameObject _laserPrefab;
     [SerializeField]
     private Transform _laserStartLoc;
+    [SerializeField]
+    private float _laserCooldown = 0.5f;
+    private bool _canShoot = true;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +25,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         MovePlayer();
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(_laserPrefab, _laserStartLoc.position, Quaternion.identity);
-        }
+        ShootLaser();
     }
 
     private void MovePlayer()
@@ -45,5 +45,21 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(11, transform.position.y, 0);
         }
+    }
+
+    void ShootLaser()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && _canShoot)
+        {
+            _canShoot = false;
+            Instantiate(_laserPrefab, _laserStartLoc.position, Quaternion.identity);
+            StartCoroutine(LaserCoolDown());
+        }
+    }
+
+    IEnumerator LaserCoolDown ()
+    {
+        yield return new WaitForSeconds(_laserCooldown);
+        _canShoot = true;
     }
 }
