@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _projectileCooldown = 0.5f;
     private bool _canShoot = true;
+    [SerializeField]
+    private int _lives = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +62,17 @@ public class Player : MonoBehaviour
             _canShoot = false;
             Instantiate(_projectilePrefab, _projectileStartLoc.position, transform.rotation);
             StartCoroutine(LaserCoolDown());
+        }
+    }
+
+    public void DamagePlayer ()
+    {
+        _lives--;
+        Debug.Log($"Lives Remaining: {_lives}");
+        // check if dead
+        if(_lives <= 0 )
+        { 
+            Destroy(this.gameObject);
         }
     }
 

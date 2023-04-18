@@ -5,25 +5,41 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 4f;
+    private float _speed = 4.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
-        // move left at 4 meters per second
         transform.Translate(Vector3.up * _speed * Time.deltaTime);
 
-        // if left side of screen 
-        // respawn on right side at random y location
         if(transform.position.x <= -9)
         {
             transform.position = new Vector3(11, Random.Range(-3f, 5.5f), 0);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Player player = other.gameObject.GetComponent<Player>();
+            if(player != null)
+            {
+                player.DamagePlayer();
+            }
+            else
+            {
+                Debug.Log("The Player script is missing.");
+            }
+            Destroy(this.gameObject);
+        }
+
+        if(other.tag == "Cannon Ball")
+        {
+            Destroy(other.gameObject);
+            // Add points to player
+            Destroy(this.gameObject);
         }
     }
 }
