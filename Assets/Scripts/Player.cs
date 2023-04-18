@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         MovePlayer();
-        ShootLaser();
+        ShootCannon();
         // Use this for drooping mines in the water.
         if(Input.GetMouseButtonDown(1))
         {
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void ShootLaser()
+    void ShootCannon()
     {
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && _canShoot)
         {
