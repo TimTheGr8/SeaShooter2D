@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
         Vector3 direction = new Vector3(-verticalInput, horizontalInput, 0);
         transform.Translate(direction * _speed * Time.deltaTime);
 
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9.0f, -3.0f), transform.position.y, 0);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9.0f, 0.0f), transform.position.y, 0);
 
         if (transform.position.y >= 7.5f)
         {
@@ -68,8 +68,6 @@ public class Player : MonoBehaviour
     public void DamagePlayer ()
     {
         _lives--;
-        Debug.Log($"Lives Remaining: {_lives}");
-        // check if dead
         if(_lives <= 0 )
         { 
             Destroy(this.gameObject);
