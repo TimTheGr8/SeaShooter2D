@@ -6,11 +6,13 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject _enemyPrefab;
-
     [SerializeField]
     private float _spwanTimer = 3.0f;
     [SerializeField]
     private int _enemyCount = 0;
+    [SerializeField]
+    private GameObject _EnemyContainer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,18 +20,12 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnEnemies());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     IEnumerator SpawnEnemies()
     {
-        int _enemiesSpawned = 0;
         while (true)
         {
-            Instantiate(_enemyPrefab, new Vector3(11, Random.Range(-3f, 5.5f), 0), _enemyPrefab.transform.rotation);
+            GameObject newEnemy =  Instantiate(_enemyPrefab, new Vector3(11, Random.Range(-3f, 5.5f), 0), _enemyPrefab.transform.rotation);
+            newEnemy.transform.SetParent(_EnemyContainer.transform);
             yield return new WaitForSeconds(_spwanTimer);
         }
     }
