@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
-  _projectilePrefab: {fileID: 3987879931589445352, guid: 6af145d54880c034a95975675d2ffc16, type: 3}
+  _projectilePrefab: {fileID: 5518830863393429437, guid: 6af145d54880c034a95975675d2ffc16, type: 3}
   _projectileStartLoc: {fileID: 535786735}
   _projectileCooldown: 0.5
   _lives: 3
@@ -391,20 +391,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!136 &769168504
-CapsuleCollider:
+--- !u!70 &769168504
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769168500}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.19327596
-  m_Height: 1.0762872
-  m_Direction: 1
-  m_Center: {x: -0.004883027, y: 0.02685652, z: 0}
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00000007152556, y: 0.024415012}
+  m_Size: {x: 0.37678555, y: 1.08117}
+  m_Direction: 0
 --- !u!1 &1000281660
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,7 +604,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1605814237
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 63d06dfca75413c4684cd481f1f1941e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

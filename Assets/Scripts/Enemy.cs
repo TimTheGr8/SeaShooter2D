@@ -19,12 +19,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
             Player player = other.gameObject.GetComponent<Player>();
-            if(player != null)
+            if (player != null)
             {
                 player.DamagePlayer();
             }
@@ -35,11 +35,12 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        if(other.tag == "Cannon Ball")
+        if (other.tag == "Cannon Ball")
         {
             Destroy(other.gameObject);
             // Add points to player
             Destroy(this.gameObject);
         }
     }
+
 }
