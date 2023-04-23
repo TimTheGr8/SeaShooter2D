@@ -11,10 +11,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Transform _projectileStartLoc;
     [SerializeField]
-    private float _projectileCooldown = 0.5f;
+    private float _shotCooldown = 0.5f;
     private bool _canShoot = true;
     [SerializeField]
     private int _lives = 3;
+    private float _horizontalInput, _verticalInput;
 
     private SpawnManager _spawnManager;
 
@@ -33,24 +34,18 @@ public class Player : MonoBehaviour
     void Update()
     {
         MovePlayer();
-        ShootCannon();
-        // Use this for drooping mines in the water.
-        if(Input.GetMouseButtonDown(1))
-        {
-            Debug.Log("Right mouse pressed.");
-        }
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && _canShoot)
+            ShootCannon();
     }
 
     private void MovePlayer()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        _horizontalInput = Input.GetAxis("Horizontal");
+        _verticalInput = Input.GetAxis("Vertical");
         // Flip movement directions so that the player moves the way intended
-        Vector3 direction = new Vector3(-verticalInput, horizontalInput, 0);
+        Vector3 direction = new Vector3(-_verticalInput, _horizontalInput, 0);
         transform.Translate(direction * _speed * Time.deltaTime);
-
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9.0f, 0.0f), transform.position.y, 0);
-
         if (transform.position.y >= 7.5f)
         {
             transform.position = new Vector3(transform.position.x, -5.5f, 0);
@@ -59,16 +54,24 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, 7.5f, 0);
         }
+        //RotateShip();
+    }
+
+    private void RotateShip()
+    { 
+        Debug.Log(_verticalInput);
+        if (_verticalInput >= 0.5f)
+        {
+
+        }
     }
 
     void ShootCannon()
     {
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && _canShoot)
-        {
-            _canShoot = false;
-            Instantiate(_projectilePrefab, _projectileStartLoc.position, transform.rotation);
-            StartCoroutine(LaserCoolDown());
-        }
+        _canShoot = false;
+        GameObject newLaser = Instantiate(_projectilePrefab, _projectileStartLoc.position, transform.rotation);
+        _spawnManager.SetCannonballParent(newLaser);
+        StartCoroutine(CannonCoolDown());
     }
 
     public void DamagePlayer ()
@@ -76,14 +79,14 @@ public class Player : MonoBehaviour
         _lives--;
         if(_lives <= 0 )
         {
-            _spawnManager.OnPLayerDeath();
+            _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
         }
     }
 
-    IEnumerator LaserCoolDown ()
+    IEnumerator CannonCoolDown ()
     {
-        yield return new WaitForSeconds(_projectileCooldown);
+        yield return new WaitForSeconds(_shotCooldown);
         _canShoot = true;
     }
 }

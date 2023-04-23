@@ -21,19 +21,19 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
-        {
-            Player player = other.gameObject.GetComponent<Player>();
-            if (player != null)
-            {
-                player.DamagePlayer();
-            }
-            else
-            {
-                Debug.Log("The Player script is missing.");
-            }
-            Destroy(this.gameObject);
-        }
+        //if (other.tag == "Player")
+        //{
+        //    Player player = other.gameObject.GetComponent<Player>();
+        //    if (player != null)
+        //    {
+        //        player.DamagePlayer();
+        //    }
+        //    else
+        //    {
+        //        Debug.Log("The Player script is missing.");
+        //    }
+        //    Destroy(this.gameObject);
+        //}
 
         if (other.tag == "Cannon Ball")
         {

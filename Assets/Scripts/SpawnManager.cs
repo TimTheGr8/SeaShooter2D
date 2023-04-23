@@ -5,13 +5,13 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _enemyPrefab;
+    private List<GameObject> _enemyPrefab = new List<GameObject>();
     [SerializeField]
     private float _spawnTimer = 3.0f;
     [SerializeField]
-    private int _enemyCount = 0;
-    [SerializeField]
     private GameObject _EnemyContainer;
+    [SerializeField]
+    private GameObject _cannonballContainer;
     private bool _spawnEneimes = true;
 
 
@@ -21,17 +21,23 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnEnemies());
     }
 
-    public void OnPLayerDeath()
+    public void OnPlayerDeath()
     {
         _spawnEneimes = false;
+    }
+
+    public void SetCannonballParent(GameObject cannonball)
+    {
+        cannonball.transform.parent = _cannonballContainer.transform;
     }
 
     IEnumerator SpawnEnemies()
     {
         while (_spawnEneimes)
         {
-            GameObject newEnemy =  Instantiate(_enemyPrefab, new Vector3(11, Random.Range(-3f, 5.5f), 0), _enemyPrefab.transform.rotation);
-            newEnemy.transform.SetParent(_EnemyContainer.transform);
+            int randomEnemy = Random.Range(0, _enemyPrefab.Count);
+            GameObject newEnemy = Instantiate(_enemyPrefab[randomEnemy], new Vector3(11, Random.Range(-3f, 5.5f), 0), _enemyPrefab[randomEnemy].transform.rotation);
+            newEnemy.transform.parent = _EnemyContainer.transform;
             yield return new WaitForSeconds(_spawnTimer);
         }
     }
