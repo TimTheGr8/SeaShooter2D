@@ -176,7 +176,7 @@ Transform:
   - {fileID: 1000281661}
   - {fileID: 1521587939}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &41934263
 PrefabInstance:
@@ -2193,7 +2193,7 @@ Transform:
   m_Children:
   - {fileID: 1618635107}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!70 &769168504
 CapsuleCollider2D:
@@ -4085,7 +4085,7 @@ Transform:
   - {fileID: 252192855}
   - {fileID: 1724114743}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1550824609
 PrefabInstance:
