@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _tripleShotPrefab;
     [SerializeField]
+    private GameObject _tripleShotCannons;
+    [SerializeField]
     private float _shotCooldown = 0.5f;
     [SerializeField]
     private float _tripleShotCoolDown = 5.0f;
@@ -108,6 +110,7 @@ public class Player : MonoBehaviour
     public void ActivateTripleShot()
     {
         _tripleShotEnabled = true;
+        _tripleShotCannons.SetActive(true);
         StartCoroutine(TripleShotCountDown());
     }
 
@@ -121,5 +124,6 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(_tripleShotCoolDown);
         _tripleShotEnabled = false;
+        _tripleShotCannons.SetActive(false);
     }
 }
