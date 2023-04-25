@@ -7,9 +7,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _speed = 5.0f;
     [SerializeField]
-    private GameObject _projectilePrefab;
+    private GameObject _singleShotPrefab;
     [SerializeField]
-    private Transform _projectileStartLoc;
+    private GameObject _tripleShotPrefab;
     [SerializeField]
     private float _shotCooldown = 0.5f;
     [SerializeField]
@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private float _horizontalInput, _verticalInput;
     private SpawnManager _spawnManager;
     private SpriteRenderer _spriteRenderer;
+    private bool _tripleShotEnabled = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         if (_spriteRenderer == null)
             Debug.Log("There is no Sprite Renderer.");
+        _tripleShotEnabled = false;
     }
 
     // Update is called once per frame
@@ -77,8 +79,17 @@ public class Player : MonoBehaviour
     void ShootCannon()
     {
         _canShoot = false;
-        GameObject newLaser = Instantiate(_projectilePrefab, _projectileStartLoc.position, _spriteRenderer.transform.rotation);
-        _spawnManager.SetCannonballParent(newLaser);
+        GameObject newCannonball;
+        if (_tripleShotEnabled)
+        {
+            newCannonball = Instantiate(_tripleShotPrefab, transform.position, _spriteRenderer.transform.rotation);
+        }
+        else
+        {
+            newCannonball = Instantiate(_singleShotPrefab, new Vector3(transform.position.x + 1.3F, transform.position.y, 0), _spriteRenderer.transform.rotation);
+        }
+        
+        _spawnManager.SetCannonballParent(newCannonball);
         StartCoroutine(CannonCoolDown());
     }
 
