@@ -12,12 +12,14 @@ public class Player : MonoBehaviour
     private Transform _projectileStartLoc;
     [SerializeField]
     private float _shotCooldown = 0.5f;
-    private bool _canShoot = true;
     [SerializeField]
     private int _lives = 3;
-    private float _horizontalInput, _verticalInput;
 
+
+    private bool _canShoot = true;
+    private float _horizontalInput, _verticalInput;
     private SpawnManager _spawnManager;
+    private SpriteRenderer _spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +27,11 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(-7, 0, 0);
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         if(_spawnManager == null)
-        {
             Debug.Log("There is no Spawn Manager!!!!");
-        }
+
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (_spriteRenderer == null)
+            Debug.Log("There is no Sprite Renderer.");
     }
 
     // Update is called once per frame
@@ -42,6 +46,7 @@ public class Player : MonoBehaviour
     {
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
+        RotateShip();
         // Flip movement directions so that the player moves the way intended
         Vector3 direction = new Vector3(-_verticalInput, _horizontalInput, 0);
         transform.Translate(direction * _speed * Time.deltaTime);
@@ -54,22 +59,25 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, 7.5f, 0);
         }
-        //RotateShip();
     }
 
     private void RotateShip()
-    { 
-        Debug.Log(_verticalInput);
+    {
+        float zRotation = 0;
         if (_verticalInput >= 0.5f)
-        {
+            zRotation = -75;
+        else if (_verticalInput <= -0.5f)
+            zRotation = -115;
+        else
+            zRotation = -90;
 
-        }
+        _spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, zRotation);
     }
 
     void ShootCannon()
     {
         _canShoot = false;
-        GameObject newLaser = Instantiate(_projectilePrefab, _projectileStartLoc.position, transform.rotation);
+        GameObject newLaser = Instantiate(_projectilePrefab, _projectileStartLoc.position, _spriteRenderer.transform.rotation);
         _spawnManager.SetCannonballParent(newLaser);
         StartCoroutine(CannonCoolDown());
     }

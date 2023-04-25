@@ -9,7 +9,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private float _spawnTimer = 3.0f;
     [SerializeField]
-    private GameObject _EnemyContainer;
+    private GameObject _enemyContainer;
     [SerializeField]
     private GameObject _cannonballContainer;
     private bool _spawnEneimes = true;
@@ -37,7 +37,7 @@ public class SpawnManager : MonoBehaviour
         {
             int randomEnemy = Random.Range(0, _enemyPrefab.Count);
             GameObject newEnemy = Instantiate(_enemyPrefab[randomEnemy], new Vector3(11, Random.Range(-3f, 5.5f), 0), _enemyPrefab[randomEnemy].transform.rotation);
-            newEnemy.transform.parent = _EnemyContainer.transform;
+            newEnemy.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(_spawnTimer);
         }
     }
