@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _shotCooldown = 0.5f;
     [SerializeField]
+    private float _tripleShotCoolDown = 5.0f;
+    [SerializeField]
     private int _lives = 3;
 
 
@@ -103,9 +105,21 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ActivateTripleShot()
+    {
+        _tripleShotEnabled = true;
+        StartCoroutine(TripleShotCountDown());
+    }
+
     IEnumerator CannonCoolDown ()
     {
         yield return new WaitForSeconds(_shotCooldown);
         _canShoot = true;
+    }
+
+    IEnumerator TripleShotCountDown()
+    {
+        yield return new WaitForSeconds(_tripleShotCoolDown);
+        _tripleShotEnabled = false;
     }
 }
