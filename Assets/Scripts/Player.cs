@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _lives = 3;
 
-
     private bool _canShoot = true;
     private float _horizontalInput, _verticalInput;
     private SpawnManager _spawnManager;

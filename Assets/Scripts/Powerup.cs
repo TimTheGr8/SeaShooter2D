@@ -19,11 +19,11 @@ public class Powerup : MonoBehaviour
     }
 
     // check for collisions with player.
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.transform.tag == "Player")
+        if (other.tag == "Player")
         {
-            Player player = collision.gameObject.GetComponent<Player>();
+            Player player = other.gameObject.GetComponent<Player>();
             if (player != null)
                 player.ActivateTripleShot();
             Destroy(this.gameObject);

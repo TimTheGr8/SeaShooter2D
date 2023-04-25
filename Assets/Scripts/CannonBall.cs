@@ -12,6 +12,11 @@ public class CannonBall : MonoBehaviour
     {
         transform.Translate(Vector3.up * _speed * Time.deltaTime);
         if (transform.position.x >= 11)
-            Destroy(gameObject);
+        {
+            if (transform.parent.name == "Triple_Shot(Clone)")
+                Destroy(transform.parent.gameObject);
+            else
+                Destroy(gameObject);
+        }
     }
 }
