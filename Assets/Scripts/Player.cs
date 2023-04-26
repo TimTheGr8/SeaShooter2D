@@ -24,8 +24,6 @@ public class Player : MonoBehaviour
     private SpawnManager _spawnManager;
     private SpriteRenderer _spriteRenderer;
     private bool _tripleShotEnabled = false;
-
-    // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(-7, 0, 0);
@@ -36,10 +34,8 @@ public class Player : MonoBehaviour
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         if (_spriteRenderer == null)
             Debug.Log("There is no Sprite Renderer.");
-        _tripleShotEnabled = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         MovePlayer();
