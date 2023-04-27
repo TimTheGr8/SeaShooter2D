@@ -1,0 +1,1171 @@
+fileFormatVersion: 2
+guid: 00cf788236b1287428a7560ab6be7d51
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 427.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c110a89d807ad5458b62add6b9392de
+      internalID: 1516573718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 427.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c776d28cb946f8449785bae75ea2869
+      internalID: 1474128165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 427.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed611a81aad2c0242b6d215708077739
+      internalID: 425949814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 427.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f1b97952616014e8ea0f74f5e5cb03
+      internalID: -312567764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 427.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ce0335a58c84d446b9bdc076621c8c0
+      internalID: -610513387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 427.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389770ccc5c2e35459a7f7d9551aa031
+      internalID: -1615679369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 356.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 165f999f02ffc7e4fb54026c4ae0329c
+      internalID: -80575622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 356.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00456d8adc0da6040b51f075e48da2fd
+      internalID: -684812725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 356.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a27c29c4fa7a144e9d38d6de0bd9dcd
+      internalID: -723906140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 356.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df6c69e7f9b28cc4aaaaec3061383ee8
+      internalID: -599773374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 356.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 054dc2fbc8adc2b42bc33cb98ea6ab38
+      internalID: -191009234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 356.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff8cce2a16190649822489f474acc35
+      internalID: 1629710042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 356.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42dedf511e8179f47951efce6e4284d7
+      internalID: 2030596232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 285.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8572cc3a5f4b18a46af939ea028c6ed0
+      internalID: 672383331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 285.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6987d62151e2f404c9cc40c12503f46f
+      internalID: -992265691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 285.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b4b2f53b8373f14fa2e9a6da8dcda65
+      internalID: -280587025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 285.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab46d152824d6624481ab82abab30a20
+      internalID: 33021877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 285.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4856ce14ca1d044d932f78e85dc1714
+      internalID: 330461939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 285.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdcd32595bfff764cb52d07abd6545a1
+      internalID: 2134541745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 285.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 851c352ea4db1ca46b67b380b9a7a87f
+      internalID: -1340268905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 214.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8833c6c9bcdd51b4ea0dcb9c860abdf1
+      internalID: -1712764099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 214.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d74b80d3922aab14e85346c0ed40a99f
+      internalID: 1061133432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 214.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 621984f84bf48914bbe627981b0d5aa9
+      internalID: 1971886116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 214.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cc29906b8fbf424dab31e70f5639ef0
+      internalID: -1688143208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 214.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ddd9e3e83cb5734b94aee77fe6802b5
+      internalID: 371698514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 214.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f5b5b9d7a5ebc34385848c02b0b4634
+      internalID: 1065736898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 214.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ba67aaee19edf84399c8e8c4d98d495
+      internalID: 1313610389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 143.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23cceb2ccc96b894788d7796b9179b60
+      internalID: -1998913426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 143.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d103f49ced8a9f84b9a0ef768569fc7b
+      internalID: 992062264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 143.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b2eda12334cb1746bc00174dedd9b5b
+      internalID: 750459156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 143.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b8691ba82cb4d645965584006075833
+      internalID: 365950252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 143.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 439755b9df3e7dd4393c67252edd93ea
+      internalID: -53998980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 143.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e16c3e862c09e6438bbc2b8580dc405
+      internalID: -2016583066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 143.7143
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 162f7aabe5257e94b8d4ec323dcef60d
+      internalID: 350296383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 72.71429
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d57affa98ee12c42a699a072d7d03d0
+      internalID: -731041548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 72.71429
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b78a2650ba899446b1bd5860e1c7a5a
+      internalID: -777614925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 72.71429
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff71032f035ec954b86653c8cf678524
+      internalID: 1831750016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 72.71429
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af04d2c3236a528489b05d25232b6f5e
+      internalID: -1983835382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 72.71429
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77358fd42eda28a4ca9e735265df8854
+      internalID: -2089930253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 72.71429
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9066a7694a6064db660d6718980307
+      internalID: -2126993005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 72.71429
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be2ee036613e9a40b3e4ed556a4d770
+      internalID: 1712957435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1.7142868
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad540d4b3e6dc844b83d8d64c0db38b
+      internalID: 559139115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 1.7142868
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6781925317e0042b9746c9484557da
+      internalID: -596025330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1.7142868
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 791b1069075d19646acd33debde4cc5c
+      internalID: -1763499202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 1.7142868
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87c1a4b41550e1f459bd5b973fdffc1e
+      internalID: -1625390381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind Sprite Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 1.7142868
+        width: 71.28571
+        height: 71.28571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da20cc906ecc8ab4c82a1fc248e8f0cd
+      internalID: 1165207335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Wind Sprite Sheet_0: 1516573718
+      Wind Sprite Sheet_1: 1474128165
+      Wind Sprite Sheet_10: -191009234
+      Wind Sprite Sheet_11: 1629710042
+      Wind Sprite Sheet_12: 2030596232
+      Wind Sprite Sheet_13: 672383331
+      Wind Sprite Sheet_14: -992265691
+      Wind Sprite Sheet_15: -280587025
+      Wind Sprite Sheet_16: 33021877
+      Wind Sprite Sheet_17: 330461939
+      Wind Sprite Sheet_18: 2134541745
+      Wind Sprite Sheet_19: -1340268905
+      Wind Sprite Sheet_2: 425949814
+      Wind Sprite Sheet_20: -1712764099
+      Wind Sprite Sheet_21: 1061133432
+      Wind Sprite Sheet_22: 1971886116
+      Wind Sprite Sheet_23: -1688143208
+      Wind Sprite Sheet_24: 371698514
+      Wind Sprite Sheet_25: 1065736898
+      Wind Sprite Sheet_26: 1313610389
+      Wind Sprite Sheet_27: -1998913426
+      Wind Sprite Sheet_28: 992062264
+      Wind Sprite Sheet_29: 750459156
+      Wind Sprite Sheet_3: -312567764
+      Wind Sprite Sheet_30: 365950252
+      Wind Sprite Sheet_31: -53998980
+      Wind Sprite Sheet_32: -2016583066
+      Wind Sprite Sheet_33: 350296383
+      Wind Sprite Sheet_34: -731041548
+      Wind Sprite Sheet_35: -777614925
+      Wind Sprite Sheet_36: 1831750016
+      Wind Sprite Sheet_37: -1983835382
+      Wind Sprite Sheet_38: -2089930253
+      Wind Sprite Sheet_39: -2126993005
+      Wind Sprite Sheet_4: -610513387
+      Wind Sprite Sheet_40: 1712957435
+      Wind Sprite Sheet_41: 559139115
+      Wind Sprite Sheet_42: -596025330
+      Wind Sprite Sheet_43: -1763499202
+      Wind Sprite Sheet_44: -1625390381
+      Wind Sprite Sheet_45: 1165207335
+      Wind Sprite Sheet_5: -1615679369
+      Wind Sprite Sheet_6: -80575622
+      Wind Sprite Sheet_7: -684812725
+      Wind Sprite Sheet_8: -723906140
+      Wind Sprite Sheet_9: -599773374
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

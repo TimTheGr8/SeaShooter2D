@@ -7,13 +7,13 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> _enemyPrefab = new List<GameObject>();
     [SerializeField]
+    private List<GameObject> _powerupPrefab = new List<GameObject>();
+    [SerializeField]
     private float _spawnTimer = 3.0f;
     [SerializeField]
     private GameObject _enemyContainer;
     [SerializeField]
     private GameObject _cannonballContainer;
-    [SerializeField]
-    private GameObject _powerupPrefab;
 
     private bool _spawn = true;
 
@@ -49,8 +49,9 @@ public class SpawnManager : MonoBehaviour
     {
         while (_spawn)
         {
+            int randomPowerup = Random.Range(0, _powerupPrefab.Count);
             int randomTime = Random.Range(3, 8);
-            GameObject newPowerup = Instantiate(_powerupPrefab, new Vector3(11, Random.Range(-3f, 5.5f), 0), Quaternion.identity);
+            GameObject newPowerup = Instantiate(_powerupPrefab[randomPowerup], new Vector3(11, Random.Range(-3f, 5.5f), 0), Quaternion.identity);
             yield return new WaitForSeconds(randomTime);
         }
     }

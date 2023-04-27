@@ -158,10 +158,12 @@ MonoBehaviour:
   - {fileID: 6823697431039320004, guid: 7758a92f196bfcb4ebe16956e9b2afec, type: 3}
   - {fileID: 6823697431039320004, guid: f405983aa80de024abd66faa40791885, type: 3}
   - {fileID: 6823697431039320004, guid: a5902a4893f1d3748b06d1488023ccbf, type: 3}
+  _powerupPrefab:
+  - {fileID: 207247363852572232, guid: 992fc0945d0cf924aa4a1aafde6b6e0a, type: 3}
+  - {fileID: 8230744981889364200, guid: 897af3f494fc36a479f693613065a7b6, type: 3}
   _spawnTimer: 1
   _enemyContainer: {fileID: 1000281660}
   _cannonballContainer: {fileID: 1521587938}
-  _powerupPrefab: {fileID: 207247363852572232, guid: 992fc0945d0cf924aa4a1aafde6b6e0a, type: 3}
 --- !u!4 &2861542
 Transform:
   m_ObjectHideFlags: 0
@@ -2294,11 +2296,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
+  _boostSpeed: 7
   _singleShotPrefab: {fileID: 5518830863393429437, guid: 6af145d54880c034a95975675d2ffc16, type: 3}
   _tripleShotPrefab: {fileID: 3259742454066050448, guid: 3b6e78bf01082c74e959bb3a286df0df, type: 3}
   _tripleShotCannons: {fileID: 1674963736}
   _shotCooldown: 0.25
   _tripleShotCoolDown: 2
+  _speedBoostCoolDown: 2.5
   _lives: 3
 --- !u!4 &769168503
 Transform:
@@ -2308,7 +2312,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769168500}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.42, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:

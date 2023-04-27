@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _speed = 5.0f;
     [SerializeField]
+    private float _boostSpeed = 8.5f;
+    [SerializeField]
     private GameObject _singleShotPrefab;
     [SerializeField]
     private GameObject _tripleShotPrefab;
@@ -17,6 +19,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _tripleShotCoolDown = 5.0f;
     [SerializeField]
+    private float _speedBoostCoolDown = 2.5f;
+    [SerializeField]
     private int _lives = 3;
 
     private bool _canShoot = true;
@@ -24,9 +28,12 @@ public class Player : MonoBehaviour
     private SpawnManager _spawnManager;
     private SpriteRenderer _spriteRenderer;
     private bool _tripleShotEnabled = false;
+    private float _currentSpeed;
+
     void Start()
     {
         transform.position = new Vector3(-7, 0, 0);
+        _currentSpeed = _speed;
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         if(_spawnManager == null)
             Debug.Log("There is no Spawn Manager!!!!");
@@ -50,7 +57,7 @@ public class Player : MonoBehaviour
         RotateShip();
         // Flip movement directions so that the player moves the way intended
         Vector3 direction = new Vector3(-_verticalInput, _horizontalInput, 0);
-        transform.Translate(direction * _speed * Time.deltaTime);
+        transform.Translate(direction * _currentSpeed * Time.deltaTime);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9.0f, 0.0f), transform.position.y, 0);
         if (transform.position.y >= 7.5f)
         {
@@ -109,6 +116,17 @@ public class Player : MonoBehaviour
         StartCoroutine(TripleShotCountDown());
     }
 
+    public void ActivateSpeedBoost()
+    {
+        _currentSpeed = _boostSpeed;
+        StartCoroutine(SpeedBoostCoolDown());
+    }
+
+    public void ActivateShield()
+    {
+        // Shield me!!!!
+    }
+
     IEnumerator CannonCoolDown ()
     {
         yield return new WaitForSeconds(_shotCooldown);
@@ -120,5 +138,11 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(_tripleShotCoolDown);
         _tripleShotEnabled = false;
         _tripleShotCannons.SetActive(false);
+    }
+
+    IEnumerator SpeedBoostCoolDown()
+    {
+        yield return new WaitForSeconds(_speedBoostCoolDown);
+        _currentSpeed = _speed;
     }
 }
