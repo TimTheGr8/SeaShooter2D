@@ -12,18 +12,21 @@ public class SpawnManager : MonoBehaviour
     private GameObject _enemyContainer;
     [SerializeField]
     private GameObject _cannonballContainer;
-    private bool _spawnEneimes = true;
+    [SerializeField]
+    private GameObject _powerupPrefab;
+
+    private bool _spawn = true;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SpawnEnemies());
+        StartCoroutine(SpawnPowerups());
     }
 
     public void OnPlayerDeath()
     {
-        _spawnEneimes = false;
+        _spawn = false;
     }
 
     public void SetCannonballParent(GameObject cannonball)
@@ -33,12 +36,22 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
-        while (_spawnEneimes)
+        while (_spawn)
         {
             int randomEnemy = Random.Range(0, _enemyPrefab.Count);
             GameObject newEnemy = Instantiate(_enemyPrefab[randomEnemy], new Vector3(11, Random.Range(-3f, 5.5f), 0), _enemyPrefab[randomEnemy].transform.rotation);
             newEnemy.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(_spawnTimer);
+        }
+    }
+
+    IEnumerator SpawnPowerups()
+    {
+        while (_spawn)
+        {
+            int randomTime = Random.Range(3, 8);
+            GameObject newPowerup = Instantiate(_powerupPrefab, new Vector3(11, Random.Range(-3f, 5.5f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(randomTime);
         }
     }
 }

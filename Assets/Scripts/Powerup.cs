@@ -6,10 +6,6 @@ public class Powerup : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 3.0f;
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -18,7 +14,6 @@ public class Powerup : MonoBehaviour
             Destroy(this.gameObject);
     }
 
-    // check for collisions with player.
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
