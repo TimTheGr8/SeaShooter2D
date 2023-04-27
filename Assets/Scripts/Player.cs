@@ -125,6 +125,7 @@ public class Player : MonoBehaviour
     public void ActivateShield()
     {
         // Shield me!!!!
+        Debug.Log("Shields online");
     }
 
     IEnumerator CannonCoolDown ()
