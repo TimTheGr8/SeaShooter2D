@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _tripleShotCannons;
     [SerializeField]
+    private GameObject _playerShield;
+    [SerializeField]
     private float _shotCooldown = 0.5f;
     [SerializeField]
     private float _tripleShotCoolDown = 5.0f;
@@ -28,6 +30,7 @@ public class Player : MonoBehaviour
     private SpawnManager _spawnManager;
     private SpriteRenderer _spriteRenderer;
     private bool _tripleShotEnabled = false;
+    private bool _shieldActive = false;
     private float _currentSpeed;
 
     void Start()
@@ -101,6 +104,12 @@ public class Player : MonoBehaviour
 
     public void DamagePlayer ()
     {
+        if (_shieldActive)
+        {
+            DeactivateShields();
+            return;
+        }
+        
         _lives--;
         if(_lives <= 0 )
         {
@@ -124,8 +133,13 @@ public class Player : MonoBehaviour
 
     public void ActivateShield()
     {
-        // Shield me!!!!
-        Debug.Log("Shields online");
+        _shieldActive = true;
+        _playerShield.SetActive(true);
+    }
+    private void DeactivateShields()
+    {
+        _shieldActive = false;
+        _playerShield.SetActive(false);
     }
 
     IEnumerator CannonCoolDown ()
