@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7199034554043644108}
   - component: {fileID: 7855934621968953067}
   - component: {fileID: -3431276100299259019}
-  - component: {fileID: 783680972}
   m_Layer: 0
   m_Name: Wind Powerup Prefab
   m_TagString: Untagged
@@ -147,31 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b7d6be06ba0c245ae07cac7e2bbf45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0
+  _speed: 4
   _powerupId: 1
---- !u!61 &783680972
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8230744981889364200}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.34, y: 0.33}
-    newSize: {x: 0.7128571, y: 0.7128571}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.34, y: 0.33}
-  m_EdgeRadius: 0
