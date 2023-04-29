@@ -25,10 +25,12 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _lives = 3;
 
+    private int _score = 0;
     private bool _canShoot = true;
     private float _horizontalInput, _verticalInput;
     private SpawnManager _spawnManager;
     private SpriteRenderer _spriteRenderer;
+    private UIManager _uiManager;
     private bool _tripleShotEnabled = false;
     private bool _shieldActive = false;
     private float _currentSpeed;
@@ -44,6 +46,9 @@ public class Player : MonoBehaviour
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         if (_spriteRenderer == null)
             Debug.Log("There is no Sprite Renderer.");
+        _uiManager = GameObject.Find("UI_Manager").GetComponent<UIManager>();
+        if (_uiManager == null)
+            Debug.LogError("There is no UI Manager");
     }
 
     void Update()
@@ -100,6 +105,17 @@ public class Player : MonoBehaviour
         
         _spawnManager.SetCannonballParent(newCannonball);
         StartCoroutine(CannonCoolDown());
+    }
+
+    public int GetScore()
+    {
+        return _score;
+    }
+
+    public void AddScore(int scoreToAdd)
+    {
+        _score += scoreToAdd;
+        _uiManager.UpdateScore(_score);
     }
 
     public void DamagePlayer ()

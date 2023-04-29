@@ -6,7 +6,10 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 4.0f;
+    [SerializeField]
+    private int _scoreValue = 5;
 
+    private Player _player;
     
     // Update is called once per frame
     void Update()
@@ -23,10 +26,10 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Player player = other.gameObject.GetComponent<Player>();
-            if (player != null)
+            _player = other.gameObject.GetComponent<Player>();
+            if (_player != null)
             {
-                player.DamagePlayer();
+                _player.DamagePlayer();
             }
             else
             {
@@ -37,8 +40,14 @@ public class Enemy : MonoBehaviour
 
         if (other.tag == "Cannon Ball")
         {
-            Destroy(other.gameObject);
-            // Add points to player
+            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            if (_player != null)
+            {
+                Debug.Log("Score added.");
+                _player.AddScore(_scoreValue);
+            }
+                Destroy(other.gameObject);
+            
             Destroy(this.gameObject);
         }
     }
