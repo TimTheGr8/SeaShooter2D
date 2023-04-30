@@ -31,14 +31,6 @@ public class UIManager : MonoBehaviour
         _restartText.SetActive(false);
     }
 
-    private void Update()
-    {
-        if(_restartText.activeInHierarchy && Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene("Game");
-        }
-    }
-
     public void UpdateScore(int score)
     {
         _scoreText.text = $"Score: {score}";
@@ -49,14 +41,19 @@ public class UIManager : MonoBehaviour
         _lives[livesRemaining].sprite = _deathSprite;
         if (livesRemaining == 0)
         {
-            StartCoroutine(Flicker(livesRemaining));
-            _restartText.SetActive(true);
+            GameOver();
         }
     }
 
-    IEnumerator Flicker(int lives)
+    private void GameOver()
     {
-        while(lives == 0)
+        StartCoroutine(Flicker());
+        _restartText.SetActive(true);
+    }
+
+    IEnumerator Flicker()
+    {
+        while(true)
         {
             _gameOverText.SetActive(true);
             yield return new WaitForSeconds(0.5f);
