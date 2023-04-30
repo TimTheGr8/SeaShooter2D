@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        if (_player == null)
+            Debug.LogError("There is no Player script.");
     }
 
     void Update()
@@ -31,25 +33,14 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (_player != null)
-            {
-                _player.DamagePlayer();
-            }
-            else
-            {
-                Debug.Log("The Player script is missing.");
-            }
+            _player.DamagePlayer();
             Destroy(this.gameObject);
         }
 
         if (other.tag == "Cannon Ball")
         {
-            if (_player != null)
-            {
-                _player.AddScore(_scoreValue);
-            }
+            _player.AddScore(_scoreValue);
             Destroy(other.gameObject);
-            
             Destroy(this.gameObject);
         }
     }

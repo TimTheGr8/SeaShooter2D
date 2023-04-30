@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class UIManager : MonoBehaviour
     private Sprite _lifeSprite;
     [SerializeField]
     private Sprite _deathSprite;
+    [SerializeField]
+    private GameObject _gameOverText;
+    [SerializeField]
+    private GameObject _restartText;
 
     void Start()
     {
@@ -21,6 +26,16 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < _lives.Count; i++)
         {
             _lives[i].sprite = _lifeSprite;
+        }
+        _gameOverText.SetActive(false);
+        _restartText.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if(_restartText.activeInHierarchy && Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("Game");
         }
     }
 
@@ -32,5 +47,21 @@ public class UIManager : MonoBehaviour
     public void UpdateLives(int livesRemaining)
     {
         _lives[livesRemaining].sprite = _deathSprite;
+        if (livesRemaining == 0)
+        {
+            StartCoroutine(Flicker(livesRemaining));
+            _restartText.SetActive(true);
+        }
+    }
+
+    IEnumerator Flicker(int lives)
+    {
+        while(lives == 0)
+        {
+            _gameOverText.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            _gameOverText.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }
