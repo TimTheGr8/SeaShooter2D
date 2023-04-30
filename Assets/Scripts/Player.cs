@@ -41,12 +41,11 @@ public class Player : MonoBehaviour
         _currentSpeed = _speed;
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         if(_spawnManager == null)
-            Debug.Log("There is no Spawn Manager!!!!");
-
+            Debug.LogError("There is no Spawn Manager!!!!");
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         if (_spriteRenderer == null)
             Debug.Log("There is no Sprite Renderer.");
-        _uiManager = GameObject.Find("UI_Manager").GetComponent<UIManager>();
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         if (_uiManager == null)
             Debug.LogError("There is no UI Manager");
     }
@@ -107,11 +106,6 @@ public class Player : MonoBehaviour
         StartCoroutine(CannonCoolDown());
     }
 
-    public int GetScore()
-    {
-        return _score;
-    }
-
     public void AddScore(int scoreToAdd)
     {
         _score += scoreToAdd;
@@ -127,6 +121,7 @@ public class Player : MonoBehaviour
         }
         
         _lives--;
+        _uiManager.UpdateLives(_lives);
         if(_lives <= 0 )
         {
             _spawnManager.OnPlayerDeath();

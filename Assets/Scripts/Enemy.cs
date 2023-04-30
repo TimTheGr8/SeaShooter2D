@@ -10,8 +10,13 @@ public class Enemy : MonoBehaviour
     private int _scoreValue = 5;
 
     private Player _player;
-    
-    // Update is called once per frame
+
+
+    private void Start()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
+
     void Update()
     {
         transform.Translate(Vector3.up * _speed * Time.deltaTime);
@@ -26,7 +31,6 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            _player = other.gameObject.GetComponent<Player>();
             if (_player != null)
             {
                 _player.DamagePlayer();
@@ -40,13 +44,11 @@ public class Enemy : MonoBehaviour
 
         if (other.tag == "Cannon Ball")
         {
-            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             if (_player != null)
             {
-                Debug.Log("Score added.");
                 _player.AddScore(_scoreValue);
             }
-                Destroy(other.gameObject);
+            Destroy(other.gameObject);
             
             Destroy(this.gameObject);
         }
