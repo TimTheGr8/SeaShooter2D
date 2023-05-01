@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -20,8 +19,14 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject _restartText;
 
+    private GameManager _gameManager;
+
     void Start()
     {
+        _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        if (_gameManager == null)
+            Debug.LogError("There is no Game MAnager in the scene.");
+
         _scoreText.text = $"Score: 0";
         for (int i = 0; i < _lives.Count; i++)
         {
@@ -41,17 +46,13 @@ public class UIManager : MonoBehaviour
         _lives[livesRemaining].sprite = _deathSprite;
         if (livesRemaining == 0)
         {
-            GameOver();
+            StartCoroutine(Flicker());
+            _restartText.SetActive(true);
+            _gameManager.GameOver(); 
         }
     }
 
-    private void GameOver()
-    {
-        StartCoroutine(Flicker());
-        _restartText.SetActive(true);
-    }
-
-    IEnumerator Flicker()
+   IEnumerator Flicker()
     {
         while(true)
         {

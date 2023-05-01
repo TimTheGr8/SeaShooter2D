@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         MovePlayer();
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && _canShoot)
+        if ((Input.GetKeyDown(KeyCode.Space)) && _canShoot)
             ShootCannon();
     }
 
