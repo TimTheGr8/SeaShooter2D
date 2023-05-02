@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab:
-  - {fileID: 6823697431039320004, guid: f821ae66296e1f94da117f0a5e925311, type: 3}
   - {fileID: 6823697431039320004, guid: 355f6e90dc6dc7041b4e0195eedb7654, type: 3}
+  - {fileID: 6823697431039320004, guid: f821ae66296e1f94da117f0a5e925311, type: 3}
   - {fileID: 6823697431039320004, guid: 7758a92f196bfcb4ebe16956e9b2afec, type: 3}
   - {fileID: 6823697431039320004, guid: f405983aa80de024abd66faa40791885, type: 3}
   - {fileID: 6823697431039320004, guid: a5902a4893f1d3748b06d1488023ccbf, type: 3}
@@ -2728,7 +2728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &893908262
 RectTransform:
   m_ObjectHideFlags: 0
