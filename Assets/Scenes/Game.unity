@@ -2574,6 +2574,8 @@ MonoBehaviour:
   _tripleShotCoolDown: 2
   _speedBoostCoolDown: 2.5
   _lives: 3
+  _twoLivesRemaining: {fileID: 21300000, guid: ecca094f55e610d41a70218bb7614fce, type: 3}
+  _oneLifeRemaining: {fileID: 21300000, guid: 1ab836ca629dd8b4fa173f92e1fbfdce, type: 3}
 --- !u!4 &769168503
 Transform:
   m_ObjectHideFlags: 0
@@ -3481,7 +3483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1102762904
 Transform:
   m_ObjectHideFlags: 0
@@ -6116,7 +6118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1867261277
 Transform:
   m_ObjectHideFlags: 0

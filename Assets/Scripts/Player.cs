@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _boostSpeed = 8.5f;
     [SerializeField]
+    private Vector3 _startingPosition = new Vector3(-7, 0, 0);
+    [SerializeField]
     private GameObject _singleShotPrefab;
     [SerializeField]
     private GameObject _tripleShotPrefab;
@@ -24,6 +26,8 @@ public class Player : MonoBehaviour
     private float _speedBoostCoolDown = 2.5f;
     [SerializeField]
     private int _lives = 3;
+    [SerializeField]
+    private Sprite _twoLivesRemaining, _oneLifeRemaining;
 
     private int _score = 0;
     private bool _canShoot = true;
@@ -37,7 +41,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        transform.position = new Vector3(-7, 0, 0);
+        transform.position = _startingPosition;
         _currentSpeed = _speed;
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         if(_spawnManager == null)
@@ -122,10 +126,20 @@ public class Player : MonoBehaviour
         
         _lives--;
         _uiManager.UpdateLives(_lives);
-        if(_lives <= 0 )
+        switch (_lives)
         {
-            _spawnManager.OnPlayerDeath();
-            Destroy(this.gameObject);
+            case 2:
+                _spriteRenderer.sprite = _twoLivesRemaining;
+                break;
+            case 1:
+                _spriteRenderer.sprite = _oneLifeRemaining;
+                break;
+            case 0:
+                _spawnManager.OnPlayerDeath();
+                Destroy(this.gameObject);
+                break;
+            default:
+                break;
         }
         // Move player to starting position, blink, make it not take damage again until blink is done
     }
