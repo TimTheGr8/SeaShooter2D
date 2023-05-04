@@ -127,6 +127,7 @@ public class Player : MonoBehaviour
             _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
         }
+        // Move player to starting position, blink, make it not take damage again until blink is done
     }
 
     public void ActivateTripleShot()

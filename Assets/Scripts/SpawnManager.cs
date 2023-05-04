@@ -20,8 +20,7 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SpawnEnemies());
-        StartCoroutine(SpawnPowerups());
+        
     }
 
     public void OnPlayerDeath()
@@ -34,8 +33,15 @@ public class SpawnManager : MonoBehaviour
         cannonball.transform.parent = _cannonballContainer.transform;
     }
 
+    public void StartSpawning()
+    {
+        StartCoroutine(SpawnEnemies());
+        StartCoroutine(SpawnPowerups());
+    }
+
     IEnumerator SpawnEnemies()
     {
+        yield return new WaitForSeconds(1.5f);
         while (_spawn)
         {
             int randomEnemy = Random.Range(0, _enemyPrefab.Count);
@@ -47,6 +53,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnPowerups()
     {
+        yield return new WaitForSeconds(3.0f);
         while (_spawn)
         {
             int randomPowerup = Random.Range(0, _powerupPrefab.Count);
