@@ -115,3 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  _shotTimer: 1.25
+  _waterSplash: {fileID: 6583168226559460864, guid: 39d2dbd109c8116418228b4d0ba36f87, type: 3}
+  _splashTime: 0.4
