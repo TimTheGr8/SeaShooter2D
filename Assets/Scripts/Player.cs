@@ -28,6 +28,10 @@ public class Player : MonoBehaviour
     private int _lives = 3;
     [SerializeField]
     private Sprite _twoLivesRemaining, _oneLifeRemaining;
+    [SerializeField]
+    private AudioClip _cannonFireClip;
+    [SerializeField]
+    private AudioClip _explosionClip;
 
     private int _score = 0;
     private bool _canShoot = true;
@@ -38,6 +42,7 @@ public class Player : MonoBehaviour
     private bool _tripleShotEnabled = false;
     private bool _shieldActive = false;
     private float _currentSpeed;
+    private AudioSource _audioSource;
 
     void Start()
     {
@@ -48,10 +53,15 @@ public class Player : MonoBehaviour
             Debug.LogError("There is no Spawn Manager!!!!");
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         if (_spriteRenderer == null)
-            Debug.Log("There is no Sprite Renderer.");
+            Debug.LogError("There is no Sprite Renderer.");
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         if (_uiManager == null)
             Debug.LogError("There is no UI Manager");
+        _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null)
+            Debug.LogError("There is no Audio Source on the Player.");
+        else
+            _audioSource.clip = _cannonFireClip;
     }
 
     void Update()
@@ -97,6 +107,7 @@ public class Player : MonoBehaviour
     {
         _canShoot = false;
         GameObject newCannonball;
+        _audioSource.Play();
         if (_tripleShotEnabled)
         {
             newCannonball = Instantiate(_tripleShotPrefab, transform.position, _spriteRenderer.transform.rotation);
@@ -105,7 +116,7 @@ public class Player : MonoBehaviour
         {
             newCannonball = Instantiate(_singleShotPrefab, new Vector3(transform.position.x + 1.3F, transform.position.y, 0), _spriteRenderer.transform.rotation);
         }
-        
+
         _spawnManager.SetCannonballParent(newCannonball);
         StartCoroutine(CannonCoolDown());
     }
@@ -135,6 +146,8 @@ public class Player : MonoBehaviour
                 _spriteRenderer.sprite = _oneLifeRemaining;
                 break;
             case 0:
+                _audioSource.clip = _explosionClip;
+                _audioSource.Play();
                 _spawnManager.OnPlayerDeath();
                 Destroy(this.gameObject);
                 break;

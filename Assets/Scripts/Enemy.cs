@@ -8,10 +8,13 @@ public class Enemy : MonoBehaviour
     private float _speed = 4.0f;
     [SerializeField]
     private int _scoreValue = 5;
+    [SerializeField]
+    private AudioClip _explosionClip;
 
     private Player _player;
     private Animator _anim;
     private Collider2D _collider;
+    private AudioSource _audioSource;
 
 
     private void Start()
@@ -25,6 +28,11 @@ public class Enemy : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         if (_collider == null)
             Debug.LogError("There is no collider on the enemy.");
+        _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null)
+            Debug.LogError("There is no Audio Source on the Enemy.");
+        else
+            _audioSource.clip = _explosionClip;
     }
 
     void Update()
@@ -40,6 +48,7 @@ public class Enemy : MonoBehaviour
     private void DestoryMe()
     {
         _speed = 0;
+        _audioSource.Play();
         _anim.SetTrigger("OnEmenyDeath");
         _collider.enabled = false;
         Destroy(this.gameObject, 0.4f);
