@@ -12,6 +12,8 @@ public class CannonBall : MonoBehaviour
     private GameObject _waterSplash;
     [SerializeField]
     private float _splashTime = 0.2f;
+    [SerializeField]
+    private bool _isEnemyCannonball = false; 
 
     private void Start()
     {
