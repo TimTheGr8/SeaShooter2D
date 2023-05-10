@@ -14,6 +14,10 @@ public class Enemy : MonoBehaviour
     private GameObject _cannonballPrefab;
     [SerializeField]
     private Transform _cannon;
+    [SerializeField]
+    private SpriteRenderer _childSprite;
+    [SerializeField]
+    private bool _doesShoot = true;
 
     private Player _player;
     private Animator _anim;
@@ -41,8 +45,10 @@ public class Enemy : MonoBehaviour
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         if (_spawnManager == null)
             Debug.LogError("There is no Spawn Manager.");
-
-        StartCoroutine(Shoot());
+        if (_childSprite == null && _doesShoot)
+            Debug.LogError("There is no child cannon on the enemy.");
+        if(_doesShoot)
+            StartCoroutine(Shoot());
     }
 
     void Update()
@@ -59,6 +65,10 @@ public class Enemy : MonoBehaviour
     {
         _speed = 0;
         _audioSource.Play();
+        if (_doesShoot)
+        {
+            _childSprite.enabled = false;
+        }
         _anim.SetTrigger("OnEmenyDeath");
         _collider.enabled = false;
         Destroy(this.gameObject, 0.4f);
