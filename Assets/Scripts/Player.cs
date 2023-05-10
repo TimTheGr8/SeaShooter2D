@@ -177,6 +177,14 @@ public class Player : MonoBehaviour
         _playerShield.SetActive(false);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Cannon Ball")
+        {
+            DamagePlayer();
+        }
+    }
+
     IEnumerator CannonCoolDown ()
     {
         yield return new WaitForSeconds(_shotCooldown);

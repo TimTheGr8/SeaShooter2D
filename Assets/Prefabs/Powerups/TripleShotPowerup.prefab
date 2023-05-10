@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 4
   _powerupId: 0
+  _collectionClip: {fileID: 8300000, guid: c8d9fbccb1d91a140bde1c027397fdd5, type: 3}
 --- !u!212 &7735867838165020726
 SpriteRenderer:
   m_ObjectHideFlags: 0

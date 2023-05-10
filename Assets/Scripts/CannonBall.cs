@@ -21,7 +21,7 @@ public class CannonBall : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.up * _speed * Time.deltaTime);
-        if (transform.position.x >= 11)
+        if (transform.position.x > 11 || transform.position.x < -9.5f)
         {
             DestroyCannonball();
         }

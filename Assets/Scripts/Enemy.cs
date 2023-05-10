@@ -10,11 +10,16 @@ public class Enemy : MonoBehaviour
     private int _scoreValue = 5;
     [SerializeField]
     private AudioClip _explosionClip;
+    [SerializeField]
+    private GameObject _cannonballPrefab;
+    [SerializeField]
+    private Transform _cannon;
 
     private Player _player;
     private Animator _anim;
     private Collider2D _collider;
     private AudioSource _audioSource;
+    private SpawnManager _spawnManager;
 
 
     private void Start()
@@ -33,6 +38,11 @@ public class Enemy : MonoBehaviour
             Debug.LogError("There is no Audio Source on the Enemy.");
         else
             _audioSource.clip = _explosionClip;
+        _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
+        if (_spawnManager == null)
+            Debug.LogError("There is no Spawn Manager.");
+
+        StartCoroutine(Shoot());
     }
 
     void Update()
@@ -69,6 +79,13 @@ public class Enemy : MonoBehaviour
             Destroy(other.gameObject);
             DestoryMe();
         }
+    }
+
+    IEnumerator Shoot()
+    {
+        yield return new WaitForSeconds(Random.Range(1.0f, 1.5f));
+        GameObject cannonball = Instantiate(_cannonballPrefab, _cannon.position, transform.rotation);
+        _spawnManager.SetCannonballParent(cannonball);
     }
 
 }

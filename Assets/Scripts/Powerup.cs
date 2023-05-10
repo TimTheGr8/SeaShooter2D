@@ -9,6 +9,9 @@ public class Powerup : MonoBehaviour
     [Tooltip ("0 = Triple Shot\n1 = Speed Boost\n2 = Shields")]
     [SerializeField]
     private int _powerupId;
+    [SerializeField]
+    private AudioClip _collectionClip;
+
 
     void Update()
     {
@@ -24,6 +27,7 @@ public class Powerup : MonoBehaviour
             Player player = other.gameObject.GetComponent<Player>();
             if (player != null)
             {
+                AudioSource.PlayClipAtPoint(_collectionClip,transform.position);
                 switch (_powerupId)
                 {
                     case 0:
