@@ -2768,7 +2768,6 @@ MonoBehaviour:
   _twoLivesRemaining: {fileID: 21300000, guid: ecca094f55e610d41a70218bb7614fce, type: 3}
   _oneLifeRemaining: {fileID: 21300000, guid: 1ab836ca629dd8b4fa173f92e1fbfdce, type: 3}
   _cannonFireClip: {fileID: 8300000, guid: 2d16008f47a5ed549b07f5cd75facd44, type: 3}
-  _explosionClip: {fileID: 8300000, guid: 2f06a16940f472944b444015b478fe00, type: 3}
 --- !u!4 &769168503
 Transform:
   m_ObjectHideFlags: 0
@@ -2812,7 +2811,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

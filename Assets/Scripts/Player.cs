@@ -30,8 +30,6 @@ public class Player : MonoBehaviour
     private Sprite _twoLivesRemaining, _oneLifeRemaining;
     [SerializeField]
     private AudioClip _cannonFireClip;
-    [SerializeField]
-    private AudioClip _explosionClip;
 
     private int _score = 0;
     private bool _canShoot = true;
@@ -146,8 +144,6 @@ public class Player : MonoBehaviour
                 _spriteRenderer.sprite = _oneLifeRemaining;
                 break;
             case 0:
-                _audioSource.clip = _explosionClip;
-                _audioSource.Play();
                 _spawnManager.OnPlayerDeath();
                 Destroy(this.gameObject);
                 break;
