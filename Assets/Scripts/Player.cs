@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     private Sprite _twoLivesRemaining, _oneLifeRemaining;
     [SerializeField]
     private AudioClip _cannonFireClip;
+    [SerializeField]
+    private GameObject _explosionPrefab;
 
     private int _score = 0;
     private bool _canShoot = true;
@@ -135,6 +137,7 @@ public class Player : MonoBehaviour
         
         _lives--;
         _uiManager.UpdateLives(_lives);
+        Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
         switch (_lives)
         {
             case 2:
@@ -177,10 +180,11 @@ public class Player : MonoBehaviour
         _playerShield.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.tag == "Cannon Ball")
+        if(other.tag == "Cannon Ball")
         {
+            Destroy(other);
             DamagePlayer();
         }
     }
