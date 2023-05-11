@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _boostSpeed = 8.5f;
     [SerializeField]
+    private float _windSpeed = 5.5f;
+    [SerializeField]
     private Vector3 _startingPosition = new Vector3(-7, 0, 0);
     [SerializeField]
     private GameObject _singleShotPrefab;
@@ -48,8 +50,28 @@ public class Player : MonoBehaviour
     {
         transform.position = _startingPosition;
         _currentSpeed = _speed;
+        AssignComponents();
+    }
+
+    void Update()
+    {
+        MovePlayer();
+        if ((Input.GetKeyDown(KeyCode.Space)) && _canShoot)
+            ShootCannon();
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            _currentSpeed = _windSpeed;
+        }
+        if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            _currentSpeed = _speed;
+        }
+    }
+
+    private void AssignComponents()
+    {
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
-        if(_spawnManager == null)
+        if (_spawnManager == null)
             Debug.LogError("There is no Spawn Manager!!!!");
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         if (_spriteRenderer == null)
@@ -62,13 +84,6 @@ public class Player : MonoBehaviour
             Debug.LogError("There is no Audio Source on the Player.");
         else
             _audioSource.clip = _cannonFireClip;
-    }
-
-    void Update()
-    {
-        MovePlayer();
-        if ((Input.GetKeyDown(KeyCode.Space)) && _canShoot)
-            ShootCannon();
     }
 
     private void MovePlayer()
