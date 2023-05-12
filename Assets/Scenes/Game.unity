@@ -577,7 +577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &180322121
 Transform:
   m_ObjectHideFlags: 0
@@ -2845,7 +2845,7 @@ MonoBehaviour:
   _singleShotPrefab: {fileID: 5518830863393429437, guid: 6af145d54880c034a95975675d2ffc16, type: 3}
   _tripleShotPrefab: {fileID: 3259742454066050448, guid: 3b6e78bf01082c74e959bb3a286df0df, type: 3}
   _tripleShotCannons: {fileID: 1674963736}
-  _playerShield: {fileID: 0}
+  _playerShield: {fileID: 180322120}
   _shotCooldown: 0.25
   _tripleShotCoolDown: 2
   _speedBoostCoolDown: 2.5
@@ -2854,6 +2854,7 @@ MonoBehaviour:
   _oneLifeRemaining: {fileID: 21300000, guid: 1ab836ca629dd8b4fa173f92e1fbfdce, type: 3}
   _cannonFireClip: {fileID: 8300000, guid: 2d16008f47a5ed549b07f5cd75facd44, type: 3}
   _explosionPrefab: {fileID: 7581615170531675970, guid: 896537b36b5cce94bb1656a8291a03fd, type: 3}
+  _shieldActive: 0
 --- !u!4 &769168503
 Transform:
   m_ObjectHideFlags: 0

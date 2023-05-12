@@ -42,7 +42,10 @@ public class Player : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private UIManager _uiManager;
     private bool _tripleShotEnabled = false;
+    [SerializeField]
     private bool _shieldActive = false;
+    private SpriteRenderer _shieldRenderer;
+    private int _shieldHits = 0;
     private float _currentSpeed;
     private AudioSource _audioSource;
 
@@ -84,6 +87,9 @@ public class Player : MonoBehaviour
             Debug.LogError("There is no Audio Source on the Player.");
         else
             _audioSource.clip = _cannonFireClip;
+        _shieldRenderer = _playerShield.GetComponent<SpriteRenderer>();
+        if (_shieldRenderer == null)
+            Debug.LogError("There is no shield sprite renderer.");
     }
 
     private void MovePlayer()
@@ -144,12 +150,13 @@ public class Player : MonoBehaviour
 
     public void DamagePlayer ()
     {
-        if (_shieldActive)
+        if (_shieldActive && _shieldHits < 3)
         {
-            DeactivateShields();
+            _shieldHits++;
+            UpdateShield();
             return;
         }
-        
+
         _lives--;
         _uiManager.UpdateLives(_lives);
         Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
@@ -186,8 +193,29 @@ public class Player : MonoBehaviour
 
     public void ActivateShield()
     {
+        _shieldRenderer.color = Color.green;
+        _shieldHits = 0;
         _shieldActive = true;
         _playerShield.SetActive(true);
+    }
+
+    private void UpdateShield()
+    {
+        switch (_shieldHits)
+        {
+            case 1:
+                _shieldRenderer.color = Color.yellow;
+                break;
+            case 2:
+                _shieldRenderer.color = Color.red;
+                break;
+            case 3:
+                DeactivateShields();
+                break;
+            default:
+                Debug.LogError("The shield has taken too many hits.");
+                break;
+        }
     }
     private void DeactivateShields()
     {
