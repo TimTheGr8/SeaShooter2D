@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _shotCooldown = 0.5f;
     [SerializeField]
-    private int _ammoCount = 15;
+    private int _maxAmmoCount = 15;
     [SerializeField]
     private float _tripleShotCoolDown = 5.0f;
     [SerializeField]
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _lives = 3;
     [SerializeField]
-    private Sprite _twoLivesRemaining, _oneLifeRemaining;
+    private Sprite _threeLivesRemaining, _twoLivesRemaining, _oneLifeRemaining;
     [SerializeField]
     private AudioClip _cannonFireClip;
     [SerializeField]
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
     {
         transform.position = _startingPosition;
         _currentSpeed = _speed;
-        _currentAmmo = _ammoCount;
+        _currentAmmo = _maxAmmoCount;
         AssignComponents();
     }
 
@@ -166,10 +166,29 @@ public class Player : MonoBehaviour
         }
 
         _lives--;
-        _uiManager.UpdateLives(_lives);
+        _uiManager.RemoveLives(_lives);
         Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+        UpdatePlayerSprite();
+        // Move player to starting position, blink, make it not take damage again until blink is done
+    }
+
+    public void AddHealth()
+    {
+        if (_lives < 3)
+        {
+            _lives++;
+            _uiManager.AddLives(_lives);
+        }
+        UpdatePlayerSprite();
+    }
+
+    private void UpdatePlayerSprite()
+    {
         switch (_lives)
         {
+            case 3:
+                _spriteRenderer.sprite = _threeLivesRemaining;
+                break;
             case 2:
                 _spriteRenderer.sprite = _twoLivesRemaining;
                 break;
@@ -183,7 +202,6 @@ public class Player : MonoBehaviour
             default:
                 break;
         }
-        // Move player to starting position, blink, make it not take damage again until blink is done
     }
 
     public void ActivateTripleShot()
@@ -242,7 +260,7 @@ public class Player : MonoBehaviour
 
     public void AddAmmo()
     {
-        _currentAmmo = _ammoCount;
+        _currentAmmo = _maxAmmoCount;
         _uiManager.UpdateAmmo(_currentAmmo);
     }
 

@@ -85,9 +85,13 @@ public class Enemy : MonoBehaviour
 
         if (other.tag == "Cannon Ball")
         {
-            _player.AddScore(_scoreValue);
-            Destroy(other.gameObject);
-            DestoryMe();
+            bool enemyShot = other.GetComponent<CannonBall>().IsEnemyCannonball();
+            if (enemyShot == false)
+            {
+                _player.AddScore(_scoreValue);
+                Destroy(other.gameObject);
+                DestoryMe();
+            }
         }
     }
 

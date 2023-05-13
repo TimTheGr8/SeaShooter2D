@@ -40,6 +40,11 @@ public class CannonBall : MonoBehaviour
             Destroy(gameObject);
     }
 
+    public bool IsEnemyCannonball()
+    {
+        return _isEnemyCannonball;
+    }
+
     IEnumerator DestroyCountdown ()
     {
         yield return new WaitForSeconds(_shotTimer);

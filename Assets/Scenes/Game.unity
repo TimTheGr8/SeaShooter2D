@@ -155,7 +155,7 @@ MonoBehaviour:
   _enemyPrefab:
   - {fileID: 6823697431039320004, guid: f821ae66296e1f94da117f0a5e925311, type: 3}
   _powerupPrefab:
-  - {fileID: 1303878393649900086, guid: dc8fe7b271a482845b70b112bc89ca11, type: 3}
+  - {fileID: 1303878393649900086, guid: c09b9a4ceb6f94240b9f841d2fc9bbac, type: 3}
   _spawnTimer: 1
   _enemyContainer: {fileID: 1000281660}
   _cannonballContainer: {fileID: 1521587938}
@@ -2980,10 +2980,11 @@ MonoBehaviour:
   _tripleShotCannons: {fileID: 1674963736}
   _playerShield: {fileID: 180322120}
   _shotCooldown: 0.25
-  _ammoCount: 15
+  _maxAmmoCount: 15
   _tripleShotCoolDown: 2
   _speedBoostCoolDown: 2.5
   _lives: 3
+  _threeLivesRemaining: {fileID: 21300000, guid: 94dc700d542dee24bb6002de3d658d63, type: 3}
   _twoLivesRemaining: {fileID: 21300000, guid: ecca094f55e610d41a70218bb7614fce, type: 3}
   _oneLifeRemaining: {fileID: 21300000, guid: 1ab836ca629dd8b4fa173f92e1fbfdce, type: 3}
   _cannonFireClip: {fileID: 8300000, guid: 2d16008f47a5ed549b07f5cd75facd44, type: 3}

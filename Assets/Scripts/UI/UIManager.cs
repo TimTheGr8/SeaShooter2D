@@ -48,15 +48,30 @@ public class UIManager : MonoBehaviour
         _ammoText.text = $"Ammo: {ammo}";
     }
 
-    public void UpdateLives(int livesRemaining)
+    public void AddLives(int livesRemaining)
+    {
+        for (int i = 0; i < livesRemaining; i++)
+        {
+            _lives[livesRemaining - 1].sprite = _lifeSprite;
+        }
+    }
+
+    public void RemoveLives(int livesRemaining)
     {
         _lives[livesRemaining].sprite = _deathSprite;
         if (livesRemaining == 0)
         {
             StartCoroutine(Flicker());
             _restartText.SetActive(true);
-            _gameManager.GameOver(); 
+            _gameManager.GameOver();
         }
+    }
+
+    public void UpdateLives(int livesRemaining)
+    {
+        
+
+        
     }
 
    IEnumerator Flicker()
