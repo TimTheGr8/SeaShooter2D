@@ -6,7 +6,7 @@ public class Powerup : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 3.0f;
-    [Tooltip ("0 = Triple Shot\n1 = Speed Boost\n2 = Shields")]
+    [Tooltip ("0 = Triple Shot\n1 = Speed Boost\n2 = Shields\n3 = Ammo Crate")]
     [SerializeField]
     private int _powerupId;
     [SerializeField]
@@ -38,6 +38,9 @@ public class Powerup : MonoBehaviour
                         break;
                     case 2:
                         player.ActivateShield();
+                        break;
+                    case 3:
+                        player.AddAmmo();
                         break;
                     default:
                         Debug.Log("The powerup does not have a correct ID.");

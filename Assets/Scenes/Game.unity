@@ -155,9 +155,7 @@ MonoBehaviour:
   _enemyPrefab:
   - {fileID: 6823697431039320004, guid: f821ae66296e1f94da117f0a5e925311, type: 3}
   _powerupPrefab:
-  - {fileID: 207247363852572232, guid: 992fc0945d0cf924aa4a1aafde6b6e0a, type: 3}
-  - {fileID: 8230744981889364200, guid: 897af3f494fc36a479f693613065a7b6, type: 3}
-  - {fileID: 1303878393649900086, guid: b30b93525a822f949a08dc97ca3a85ba, type: 3}
+  - {fileID: 1303878393649900086, guid: dc8fe7b271a482845b70b112bc89ca11, type: 3}
   _spawnTimer: 1
   _enemyContainer: {fileID: 1000281660}
   _cannonballContainer: {fileID: 1521587938}

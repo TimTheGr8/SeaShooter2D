@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     private GameObject _explosionPrefab;
 
     private int _score = 0;
+    private int _currentAmmo;
     private bool _canShoot = true;
     private float _horizontalInput, _verticalInput;
     private SpawnManager _spawnManager;
@@ -54,6 +55,7 @@ public class Player : MonoBehaviour
     {
         transform.position = _startingPosition;
         _currentSpeed = _speed;
+        _currentAmmo = _ammoCount;
         AssignComponents();
     }
 
@@ -127,9 +129,9 @@ public class Player : MonoBehaviour
 
     void ShootCannon()
     {
-        if (_ammoCount > 0)
+        if (_currentAmmo > 0)
         {
-            _ammoCount--;
+            _currentAmmo--;
             _canShoot = false;
             GameObject newCannonball;
             _audioSource.Play();
@@ -144,7 +146,7 @@ public class Player : MonoBehaviour
 
             _spawnManager.SetCannonballParent(newCannonball);
             StartCoroutine(CannonCoolDown());
-            _uiManager.UpdateAmmo(_ammoCount);
+            _uiManager.UpdateAmmo(_currentAmmo);
         }
     }
 
@@ -236,6 +238,12 @@ public class Player : MonoBehaviour
             Destroy(other);
             DamagePlayer();
         }
+    }
+
+    public void AddAmmo()
+    {
+        _currentAmmo = _ammoCount;
+        _uiManager.UpdateAmmo(_currentAmmo);
     }
 
     IEnumerator CannonCoolDown ()
