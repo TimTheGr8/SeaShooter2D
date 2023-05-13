@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _shotCooldown = 0.5f;
     [SerializeField]
+    private int _ammoCount = 15;
+    [SerializeField]
     private float _tripleShotCoolDown = 5.0f;
     [SerializeField]
     private float _speedBoostCoolDown = 2.5f;
@@ -42,7 +44,6 @@ public class Player : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private UIManager _uiManager;
     private bool _tripleShotEnabled = false;
-    [SerializeField]
     private bool _shieldActive = false;
     private SpriteRenderer _shieldRenderer;
     private int _shieldHits = 0;
@@ -126,20 +127,25 @@ public class Player : MonoBehaviour
 
     void ShootCannon()
     {
-        _canShoot = false;
-        GameObject newCannonball;
-        _audioSource.Play();
-        if (_tripleShotEnabled)
+        if (_ammoCount > 0)
         {
-            newCannonball = Instantiate(_tripleShotPrefab, transform.position, _spriteRenderer.transform.rotation);
-        }
-        else
-        {
-            newCannonball = Instantiate(_singleShotPrefab, new Vector3(transform.position.x + 1.3F, transform.position.y, 0), _spriteRenderer.transform.rotation);
-        }
+            _ammoCount--;
+            _canShoot = false;
+            GameObject newCannonball;
+            _audioSource.Play();
+            if (_tripleShotEnabled)
+            {
+                newCannonball = Instantiate(_tripleShotPrefab, transform.position, _spriteRenderer.transform.rotation);
+            }
+            else
+            {
+                newCannonball = Instantiate(_singleShotPrefab, new Vector3(transform.position.x + 1.3F, transform.position.y, 0), _spriteRenderer.transform.rotation);
+            }
 
-        _spawnManager.SetCannonballParent(newCannonball);
-        StartCoroutine(CannonCoolDown());
+            _spawnManager.SetCannonballParent(newCannonball);
+            StartCoroutine(CannonCoolDown());
+            _uiManager.UpdateAmmo(_ammoCount);
+        }
     }
 
     public void AddScore(int scoreToAdd)
