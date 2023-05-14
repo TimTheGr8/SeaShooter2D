@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _singleShotPrefab;
     [SerializeField]
+    private GameObject _bombPrefab;
+    [SerializeField]
     private GameObject _tripleShotPrefab;
     [SerializeField]
     private GameObject _tripleShotCannons;
@@ -209,6 +211,11 @@ public class Player : MonoBehaviour
         _tripleShotEnabled = true;
         _tripleShotCannons.SetActive(true);
         StartCoroutine(TripleShotCountDown());
+    }
+
+    public void ActivateBombs()
+    {
+
     }
 
     public void ActivateSpeedBoost()

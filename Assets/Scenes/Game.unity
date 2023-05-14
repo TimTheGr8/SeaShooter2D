@@ -2976,6 +2976,7 @@ MonoBehaviour:
   _windSpeed: 5.5
   _startingPosition: {x: -7, y: 0, z: 0}
   _singleShotPrefab: {fileID: 5518830863393429437, guid: 6af145d54880c034a95975675d2ffc16, type: 3}
+  _bombPrefab: {fileID: 0}
   _tripleShotPrefab: {fileID: 3259742454066050448, guid: 3b6e78bf01082c74e959bb3a286df0df, type: 3}
   _tripleShotCannons: {fileID: 1674963736}
   _playerShield: {fileID: 180322120}

@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void DestoryMe()
+    public void DestoryMe()
     {
         _speed = 0;
         _audioSource.Play();
@@ -71,6 +71,7 @@ public class Enemy : MonoBehaviour
         }
         _anim.SetTrigger("OnEmenyDeath");
         _collider.enabled = false;
+        _player.AddScore(_scoreValue);
         Destroy(this.gameObject, 0.4f);
 
     }
@@ -88,7 +89,6 @@ public class Enemy : MonoBehaviour
             bool enemyShot = other.GetComponent<CannonBall>().IsEnemyCannonball();
             if (enemyShot == false)
             {
-                _player.AddScore(_scoreValue);
                 Destroy(other.gameObject);
                 DestoryMe();
             }
