@@ -19,7 +19,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _tripleShotPrefab;
     [SerializeField]
+    private GameObject _singleCannon;
+    [SerializeField]
     private GameObject _tripleShotCannons;
+    [SerializeField]
+    private GameObject _bombCannon;
     [SerializeField]
     private GameObject _playerShield;
     [SerializeField]
@@ -52,12 +56,14 @@ public class Player : MonoBehaviour
     private int _shieldHits = 0;
     private float _currentSpeed;
     private AudioSource _audioSource;
+    private GameObject _currentCannonball;
 
     void Start()
     {
         transform.position = _startingPosition;
         _currentSpeed = _speed;
         _currentAmmo = _maxAmmoCount;
+        _currentCannonball = _singleShotPrefab;
         AssignComponents();
     }
 
@@ -143,7 +149,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                newCannonball = Instantiate(_singleShotPrefab, new Vector3(transform.position.x + 1.3F, transform.position.y, 0), _spriteRenderer.transform.rotation);
+                newCannonball = Instantiate(_currentCannonball, new Vector3(transform.position.x + 1.3F, transform.position.y, 0), _spriteRenderer.transform.rotation);
             }
 
             _spawnManager.SetCannonballParent(newCannonball);
@@ -215,7 +221,10 @@ public class Player : MonoBehaviour
 
     public void ActivateBombs()
     {
-
+        _singleCannon.SetActive(false);
+        _bombCannon.SetActive(true);
+        _currentCannonball = _bombPrefab;
+        StartCoroutine(BombCountDown());
     }
 
     public void ActivateSpeedBoost()
@@ -288,5 +297,13 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(_speedBoostCoolDown);
         _currentSpeed = _speed;
+    }
+
+    IEnumerator BombCountDown ()
+    {
+        yield return new WaitForSeconds(5);
+        _bombCannon.SetActive(false);
+        _singleCannon.SetActive(true);
+        _currentCannonball = _singleShotPrefab;
     }
 }
