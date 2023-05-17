@@ -12,7 +12,6 @@ public class CameraShake : MonoBehaviour
     
     private float _shakeTimer;
     private Vector3 _originalCamPosition;
-    private Transform _cameraTransform;
 
     // Start is called before the first frame update
     void Start()
