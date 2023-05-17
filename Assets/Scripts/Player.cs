@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _windSpeed = 5.5f;
     [SerializeField]
+    private float _windSpeedDepletion = 30.0f;
+    [SerializeField]
     private Vector3 _startingPosition = new Vector3(-7, 0, 0);
     [SerializeField]
     private GameObject _singleShotPrefab;
@@ -57,6 +59,7 @@ public class Player : MonoBehaviour
     private float _currentSpeed;
     private AudioSource _audioSource;
     private GameObject _currentCannonball;
+    private float _windSpeedTimer = 100f;
 
     void Start()
     {
@@ -72,13 +75,14 @@ public class Player : MonoBehaviour
         MovePlayer();
         if ((Input.GetKeyDown(KeyCode.Space)) && _canShoot)
             ShootCannon();
-        if(Input.GetKey(KeyCode.LeftShift))
+        if(Input.GetKey(KeyCode.LeftShift) && _windSpeedTimer > 0)
         {
-            _currentSpeed = _windSpeed;
+            WindSpeedBoost();
         }
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
             _currentSpeed = _speed;
+            StartCoroutine(WindSpeedRecover());
         }
     }
 
@@ -293,6 +297,13 @@ public class Player : MonoBehaviour
         _tripleShotCannons.SetActive(false);
     }
 
+    private void WindSpeedBoost()
+    {
+        _currentSpeed = _windSpeed;
+        _windSpeedTimer -= _windSpeedDepletion * Time.deltaTime;
+        _uiManager.UpdateWindSpeedGauge(_windSpeedTimer / 100);
+    }
+
     IEnumerator SpeedBoostCoolDown()
     {
         yield return new WaitForSeconds(_speedBoostCoolDown);
@@ -305,5 +316,20 @@ public class Player : MonoBehaviour
         _bombCannon.SetActive(false);
         _singleCannon.SetActive(true);
         _currentCannonball = _singleShotPrefab;
+    }
+
+    IEnumerator WindSpeedRecover()
+    {
+        while (_currentSpeed != _windSpeed)
+        {
+            _windSpeedTimer += 10 * Time.deltaTime;
+            if(_windSpeedTimer >= 100f)
+            {
+                _windSpeedTimer = 100f;
+                break;
+            }
+            _uiManager.UpdateWindSpeedGauge(_windSpeedTimer / 100);
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

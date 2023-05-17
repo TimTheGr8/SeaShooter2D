@@ -20,6 +20,8 @@ public class UIManager : MonoBehaviour
     private GameObject _gameOverText;
     [SerializeField]
     private GameObject _restartText;
+    [SerializeField]
+    private Image _windSpeedGauge;
 
     private GameManager _gameManager;
 
@@ -67,11 +69,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void UpdateLives(int livesRemaining)
+    public void UpdateWindSpeedGauge(float timeRemaining)
     {
-        
-
-        
+        _windSpeedGauge.fillAmount = timeRemaining;
     }
 
    IEnumerator Flicker()
