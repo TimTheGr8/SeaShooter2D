@@ -60,6 +60,7 @@ public class Player : MonoBehaviour
     private AudioSource _audioSource;
     private GameObject _currentCannonball;
     private float _windSpeedTimer = 100f;
+    private CameraShake _camShake;
 
     void Start()
     {
@@ -105,6 +106,9 @@ public class Player : MonoBehaviour
         _shieldRenderer = _playerShield.GetComponent<SpriteRenderer>();
         if (_shieldRenderer == null)
             Debug.LogError("There is no shield sprite renderer.");
+        _camShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
+        if (_camShake == null)
+            Debug.LogError("There is no Camera Shake script.");
     }
 
     private void MovePlayer()
@@ -178,6 +182,7 @@ public class Player : MonoBehaviour
         }
 
         _lives--;
+        _camShake.ShakeCamera();
         _uiManager.RemoveLives(_lives);
         Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
         UpdatePlayerSprite();
