@@ -45,9 +45,9 @@ public class UIManager : MonoBehaviour
         _scoreText.text = $"Score: {score}";
     }
 
-    public void UpdateAmmo(int ammo)
+    public void UpdateAmmo(int ammo, int ammoTotal)
     {
-        _ammoText.text = $"Ammo: {ammo}";
+        _ammoText.text = $"Ammo: {ammo}/{ammoTotal}";
     }
 
     public void AddLives(int livesRemaining)

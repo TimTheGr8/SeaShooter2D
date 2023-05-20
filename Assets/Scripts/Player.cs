@@ -162,7 +162,7 @@ public class Player : MonoBehaviour
 
             _spawnManager.SetCannonballParent(newCannonball);
             StartCoroutine(CannonCoolDown());
-            _uiManager.UpdateAmmo(_currentAmmo);
+            _uiManager.UpdateAmmo(_currentAmmo, _maxAmmoCount);
         }
     }
 
@@ -286,7 +286,7 @@ public class Player : MonoBehaviour
     public void AddAmmo()
     {
         _currentAmmo = _maxAmmoCount;
-        _uiManager.UpdateAmmo(_currentAmmo);
+        _uiManager.UpdateAmmo(_currentAmmo, _maxAmmoCount);
     }
 
     IEnumerator CannonCoolDown ()
