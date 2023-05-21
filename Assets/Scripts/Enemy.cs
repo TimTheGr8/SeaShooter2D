@@ -25,8 +25,25 @@ public class Enemy : MonoBehaviour
     private AudioSource _audioSource;
     private SpawnManager _spawnManager;
 
-
     private void Start()
+    {
+        AssignComponents();
+        
+        if(_doesShoot)
+            StartCoroutine(Shoot());
+    }
+
+    void Update()
+    {
+        transform.Translate(Vector3.up * _speed * Time.deltaTime);
+
+        if(transform.position.x <= -11)
+        {
+            transform.position = new Vector3(11, Random.Range(-3f, 5.5f), 0);
+        }
+    }
+
+    private void AssignComponents()
     {
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         if (_player == null)
@@ -47,18 +64,6 @@ public class Enemy : MonoBehaviour
             Debug.LogError("There is no Spawn Manager.");
         if (_childSprite == null && _doesShoot)
             Debug.LogError("There is no child cannon on the enemy.");
-        if(_doesShoot)
-            StartCoroutine(Shoot());
-    }
-
-    void Update()
-    {
-        transform.Translate(Vector3.up * _speed * Time.deltaTime);
-
-        if(transform.position.x <= -11)
-        {
-            transform.position = new Vector3(11, Random.Range(-3f, 5.5f), 0);
-        }
     }
 
     public void DestoryMe()
@@ -72,6 +77,7 @@ public class Enemy : MonoBehaviour
         _anim.SetTrigger("OnEmenyDeath");
         _collider.enabled = false;
         _player.AddScore(_scoreValue);
+        _spawnManager.RemoveEnemy();
         Destroy(this.gameObject, 0.4f);
 
     }

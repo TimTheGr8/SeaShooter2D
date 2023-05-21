@@ -80,6 +80,10 @@ public class Player : MonoBehaviour
         {
             WindSpeedBoost();
         }
+        else
+        {
+            _currentSpeed = _speed;
+        }
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
             _currentSpeed = _speed;

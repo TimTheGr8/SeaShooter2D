@@ -5,11 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private bool _isGameOver = false;
+    [SerializeField]
+    private int _startingWaveCount = 5;
+    [SerializeField]
+    private float _waveCountMultiplyer = 1.5f;
 
-    private void Start()
+    private bool _isGameOver = false;
+    private int _wave = 1;
+    private int _waveEnemyCount;
+
+    private void Awake()
     {
         _isGameOver = false;
+        _waveEnemyCount = _startingWaveCount;
     }
 
     private void Update()
@@ -27,5 +35,17 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         _isGameOver = true;
+    }
+
+    public void NextWave()
+    {
+        _wave++;
+        _waveEnemyCount = (int)(_waveEnemyCount *_waveCountMultiplyer);
+        Debug.Log($"Wave: {_wave}\nEnemies to spawn: {_waveEnemyCount}");
+    }
+
+    public int WaveEnemyCount()
+    {
+        return _waveEnemyCount;
     }
 }
