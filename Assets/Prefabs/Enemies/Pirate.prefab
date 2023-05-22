@@ -140,6 +140,8 @@ MonoBehaviour:
   _cannonballPrefab: {fileID: 3259742454066050448, guid: 6f3ab29279972f64da56a6c8948de411, type: 3}
   _childSprite: {fileID: 8085928211775326155}
   _doesShoot: 1
+  _shotTimeMin: 1
+  _shotTimeMax: 2
 --- !u!212 &1058546268563817153
 SpriteRenderer:
   m_ObjectHideFlags: 0
