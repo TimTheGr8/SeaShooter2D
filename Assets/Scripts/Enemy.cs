@@ -13,8 +13,6 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private GameObject _cannonballPrefab;
     [SerializeField]
-    private Transform _cannon;
-    [SerializeField]
     private SpriteRenderer _childSprite;
     [SerializeField]
     private bool _doesShoot = true;
@@ -39,7 +37,10 @@ public class Enemy : MonoBehaviour
 
         if(transform.position.x <= -11)
         {
+            StopCoroutine(Shoot());
             transform.position = new Vector3(11, Random.Range(-3f, 5.5f), 0);
+            if(_doesShoot)
+                StartCoroutine(Shoot());
         }
     }
 
@@ -104,7 +105,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Shoot()
     {
         yield return new WaitForSeconds(Random.Range(1.0f, 1.5f));
-        GameObject cannonball = Instantiate(_cannonballPrefab, _cannon.position, transform.rotation);
+        GameObject cannonball = Instantiate(_cannonballPrefab, new Vector3(transform.position.x - 1.03f, transform.position.y, transform.position.z), transform.rotation);
         _spawnManager.SetCannonballParent(cannonball);
     }
 

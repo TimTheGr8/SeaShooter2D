@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Navigation : MonoBehaviour
+public class RandomNavigation : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> _navigationPoints = new List<GameObject>();
