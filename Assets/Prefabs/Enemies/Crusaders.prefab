@@ -28,8 +28,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.511, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4685429005629637409}
+  m_Children: []
   m_Father: {fileID: 1840400111791642839}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -139,7 +138,6 @@ MonoBehaviour:
   _scoreValue: 5
   _explosionClip: {fileID: 8300000, guid: 2f06a16940f472944b444015b478fe00, type: 3}
   _cannonballPrefab: {fileID: 5518830863393429437, guid: d55310fa857096e4c9c04090900443ff, type: 3}
-  _cannon: {fileID: 4685429005629637409}
   _childSprite: {fileID: 7810289151825625688}
   _doesShoot: 1
 --- !u!212 &1058546268563817153
@@ -348,34 +346,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &7960020384790816035
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4685429005629637409}
-  m_Layer: 0
-  m_Name: Cannon Shot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4685429005629637409
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7960020384790816035}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.129, y: -0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3027102279402004062}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

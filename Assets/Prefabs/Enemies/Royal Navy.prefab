@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8953141137096672759}
   - component: {fileID: 5934659994251698819}
   - component: {fileID: 4906139605497851120}
+  - component: {fileID: 1710551536}
   m_Layer: 0
   m_Name: Royal Navy
   m_TagString: Enemy
@@ -53,7 +54,6 @@ MonoBehaviour:
   _scoreValue: 5
   _explosionClip: {fileID: 8300000, guid: 2f06a16940f472944b444015b478fe00, type: 3}
   _cannonballPrefab: {fileID: 0}
-  _cannon: {fileID: 0}
   _childSprite: {fileID: 0}
   _doesShoot: 0
 --- !u!212 &1058546268563817153
@@ -262,3 +262,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1710551536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823697431039320004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ac85cf7f7fe3446bf0bf85cb19611f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _turnTimeMin: 0.15
+  _turnTimeMax: 0.75
+  _maxAngle: 145
+  _minAngle: 45
