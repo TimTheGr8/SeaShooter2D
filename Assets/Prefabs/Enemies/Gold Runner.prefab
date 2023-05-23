@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1840400111791642839
 Transform:
   m_ObjectHideFlags: 0
@@ -53,9 +53,10 @@ MonoBehaviour:
   _scoreValue: 5
   _explosionClip: {fileID: 8300000, guid: 2f06a16940f472944b444015b478fe00, type: 3}
   _cannonballPrefab: {fileID: 0}
-  _cannon: {fileID: 0}
   _childSprite: {fileID: 0}
   _doesShoot: 0
+  _shotTimeMin: 1
+  _shotTimeMax: 1.5
 --- !u!212 &1058546268563817153
 SpriteRenderer:
   m_ObjectHideFlags: 0
