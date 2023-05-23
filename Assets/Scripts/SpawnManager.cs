@@ -92,12 +92,10 @@ public class SpawnManager : MonoBehaviour
     {
         int randomDrop = Random.Range(0, _dropTableTotal);
         int itemToDrop = 9;
-        Debug.Log($"Random Number inital: {randomDrop}");
         for (int i = 0; i < _dropTable.Length; i++)
         {
             if (randomDrop <= _dropTable[i])
             {
-                Debug.Log($"Drop Table Index {i} : {_dropTable[i]}");
                 itemToDrop = i;
                 break;
             }
@@ -106,7 +104,6 @@ public class SpawnManager : MonoBehaviour
                 randomDrop -= _dropTable[i];
             }
         }
-        Debug.Log($"Random Number: {randomDrop}\nDropping element: {itemToDrop}");
         return itemToDrop;
     }
 
