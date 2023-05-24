@@ -20,17 +20,28 @@ public class Enemy : MonoBehaviour
     private float _shotTimeMin = 1.0f;
     [SerializeField]
     private float _shotTimeMax = 1.5f;
+    [SerializeField]
+    private GameObject _shieldPrefab;
+    [SerializeField]
+    private float _shieldProbability = 45;
 
     private Player _player;
     private Animator _anim;
     private Collider2D _collider;
     private AudioSource _audioSource;
     private SpawnManager _spawnManager;
+    private bool _hasShield;
 
     private void Start()
     {
         AssignComponents();
-        
+        ActivateShield();
+
+        if (_hasShield)
+            _shieldPrefab.SetActive(true);
+        else
+            _shieldPrefab.SetActive(false);
+
         if(_doesShoot)
             StartCoroutine(Shoot());
     }
@@ -71,8 +82,22 @@ public class Enemy : MonoBehaviour
             Debug.LogError("There is no child cannon on the enemy.");
     }
 
+    private void ActivateShield()
+    {
+        int probability = Random.Range(0, 101);
+
+        _hasShield =  (probability <= _shieldProbability) ? true : false;
+    }
+
     public void DestoryMe()
     {
+        //Remove Shield if active
+        if(_hasShield)
+        {
+            _shieldPrefab.SetActive(false);
+            _hasShield = false;
+            return;
+        }
         _speed = 0;
         _audioSource.Play();
         if (_doesShoot)

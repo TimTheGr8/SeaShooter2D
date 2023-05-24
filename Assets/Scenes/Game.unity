@@ -162,10 +162,10 @@ MonoBehaviour:
   - {fileID: 207247363852572232, guid: 992fc0945d0cf924aa4a1aafde6b6e0a, type: 3}
   - {fileID: 1303878393649900086, guid: b30b93525a822f949a08dc97ca3a85ba, type: 3}
   - {fileID: 1303878393649900086, guid: c09b9a4ceb6f94240b9f841d2fc9bbac, type: 3}
+  _dropTable: 370000000d0000000a00000008000000070000000500000002000000
   _spawnTimer: 1
   _enemyContainer: {fileID: 1000281660}
   _cannonballContainer: {fileID: 1521587938}
-  _dropTable: 370000000d0000000a00000008000000070000000500000002000000
 --- !u!4 &2861542
 Transform:
   m_ObjectHideFlags: 0
