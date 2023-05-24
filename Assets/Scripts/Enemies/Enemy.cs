@@ -131,6 +131,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void SetSpeed(float speed)
+    {
+        _speed = speed;
+    }
+
     IEnumerator Shoot()
     {
         while (true)
