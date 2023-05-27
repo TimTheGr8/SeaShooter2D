@@ -428,10 +428,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 4
   _scoreValue: 5
-  _doesShoot: 1
   _explosionClip: {fileID: 8300000, guid: 2f06a16940f472944b444015b478fe00, type: 3}
   _shieldPrefab: {fileID: 1714233708661987663}
   _shieldProbability: 30
+  _canonnSprite: {fileID: 7810289151825625688}
 --- !u!114 &4089775187560612248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,7 +444,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0668b64d518a2e044b64d331cd1f3e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cannonSprite: {fileID: 7810289151825625688}
+  _canonnSprite: {fileID: 1566395779021088982}
   _shotTimeMin: 1.25
   _shotTimeMax: 2.5
   _cannonballPrefab: {fileID: 5518830863393429437, guid: d55310fa857096e4c9c04090900443ff, type: 3}
+  _shootPowerups: 0
+  _powerupCheckRadius: 2.5
+  _rotationModifier: 0

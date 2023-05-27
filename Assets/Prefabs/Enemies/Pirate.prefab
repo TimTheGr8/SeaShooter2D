@@ -108,12 +108,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3042537341382938651}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0.511, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2499999, y: 1.2499999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1840400111791642839}
+  m_Father: {fileID: 5190135836809869219}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &8085928211775326155
@@ -183,7 +183,6 @@ GameObject:
   - component: {fileID: 1095348959974679871}
   - component: {fileID: -3572064679255879328}
   - component: {fileID: 3980118900675471293}
-  - component: {fileID: 1191193255414566126}
   - component: {fileID: 2643211595857964064}
   m_Layer: 0
   m_Name: Pirate
@@ -204,7 +203,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1975943884990263468}
+  - {fileID: 5190135836809869219}
   - {fileID: 7134689337890931444}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -432,22 +431,7 @@ MonoBehaviour:
   _explosionClip: {fileID: 8300000, guid: 2f06a16940f472944b444015b478fe00, type: 3}
   _shieldPrefab: {fileID: 2460135170413397172}
   _shieldProbability: 30
---- !u!114 &1191193255414566126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6823697431039320004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0668b64d518a2e044b64d331cd1f3e96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cannonSprite: {fileID: 8085928211775326155}
-  _shotTimeMin: 1
-  _shotTimeMax: 1.5
-  _cannonballPrefab: {fileID: 3259742454066050448, guid: 6f3ab29279972f64da56a6c8948de411, type: 3}
+  _canonnSprite: {fileID: 8085928211775326155}
 --- !u!114 &2643211595857964064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,3 +445,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dropable: {fileID: 3699353702639285690, guid: 1271cd446b0a9944882845f1de829cf8, type: 3}
+--- !u!1 &8755301886334537196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5190135836809869219}
+  - component: {fileID: 8817334673126961559}
+  m_Layer: 0
+  m_Name: Canonn Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5190135836809869219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8755301886334537196}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.511, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1975943884990263468}
+  m_Father: {fileID: 1840400111791642839}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8817334673126961559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8755301886334537196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0668b64d518a2e044b64d331cd1f3e96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canonnSprite: {fileID: 3042537341382938651}
+  _shotTimeMin: 1
+  _shotTimeMax: 1.5
+  _cannonballPrefab: {fileID: 3259742454066050448, guid: 6f3ab29279972f64da56a6c8948de411, type: 3}
+  _shootPowerups: 0
+  _powerupCheckRadius: 2.5
+  _rotationModifier: 0

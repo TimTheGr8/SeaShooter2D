@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _canonnSprite;
+    private GameObject _cannonSprite;
     [SerializeField]
     private float _shotTimeMin = 1.0f;
     [SerializeField]
@@ -30,7 +30,6 @@ public class Shooter : MonoBehaviour
         if (_spawnManager == null)
             Debug.LogError("There is no Spawn Manager.");
 
-        DoesShootPowerup();
         StartCoroutine(Shoot());
     }
 
@@ -79,18 +78,12 @@ public class Shooter : MonoBehaviour
         }
     }
 
-    private void DoesShootPowerup()
-    {
-        int randNumber = Random.Range(1, 10);
-        _shootPowerups = (randNumber <= 5) ? true : false;
-    }
-
     private void TargetPowerup(GameObject target)
     {
         Vector3 vectorToTarget = target.transform.position - transform.position;
-        float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - _rotationModifier;
+        float angle = Mathf.Atan2(vectorToTarget.y, (vectorToTarget.x - 5)) * Mathf.Rad2Deg - _rotationModifier;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 2.5f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 4f);
     }
 
     IEnumerator Shoot()

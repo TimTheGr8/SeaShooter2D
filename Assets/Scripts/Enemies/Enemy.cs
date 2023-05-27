@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     private GameObject _shieldPrefab;
     [SerializeField]
     private float _shieldProbability = 45;
+    [SerializeField]
+    private SpriteRenderer _canonnSprite;
 
     private Player _player;
     private Animator _anim;
@@ -62,7 +64,8 @@ public class Enemy : MonoBehaviour
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         if (_spawnManager == null)
             Debug.LogError("There is no Spawn Manager.");
-            //TODO: fix cannon sprite clean up
+        if (_canonnSprite == null)
+            Debug.LogError("The enemy did not find the cannon sprite.");
     }
 
     private void ActivateShield()
@@ -82,7 +85,7 @@ public class Enemy : MonoBehaviour
         }
         _speed = 0;
         _audioSource.Play();
-
+        _canonnSprite.gameObject.SetActive(false);
         _anim.SetTrigger("OnEmenyDeath");
         _collider.enabled = false;
         _player.AddScore(_scoreValue);

@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0668b64d518a2e044b64d331cd1f3e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canonnSprite: {fileID: 3820875270105043148}
+  _cannonSprite: {fileID: 1566395779021088982}
   _shotTimeMin: 1
   _shotTimeMax: 1.5
   _cannonballPrefab: {fileID: 5518830863393429437, guid: d55310fa857096e4c9c04090900443ff, type: 3}
@@ -482,3 +482,4 @@ MonoBehaviour:
   _explosionClip: {fileID: 8300000, guid: 2f06a16940f472944b444015b478fe00, type: 3}
   _shieldPrefab: {fileID: 1714233708661987663}
   _shieldProbability: 30
+  _canonnSprite: {fileID: 7810289151825625688}
