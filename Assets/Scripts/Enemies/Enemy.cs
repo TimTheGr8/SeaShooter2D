@@ -11,16 +11,6 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private AudioClip _explosionClip;
     [SerializeField]
-    private GameObject _cannonballPrefab;
-    [SerializeField]
-    private SpriteRenderer _childSprite;
-    [SerializeField]
-    private bool _doesShoot = true;
-    [SerializeField]
-    private float _shotTimeMin = 1.0f;
-    [SerializeField]
-    private float _shotTimeMax = 1.5f;
-    [SerializeField]
     private GameObject _shieldPrefab;
     [SerializeField]
     private float _shieldProbability = 45;
@@ -41,9 +31,6 @@ public class Enemy : MonoBehaviour
             _shieldPrefab.SetActive(true);
         else
             _shieldPrefab.SetActive(false);
-
-        if(_doesShoot)
-            StartCoroutine(Shoot());
     }
 
     void Update()
@@ -52,10 +39,7 @@ public class Enemy : MonoBehaviour
 
         if(transform.position.x <= -11)
         {
-            StopAllCoroutines();
             transform.position = new Vector3(11, Random.Range(-3f, 5.5f), 0);
-            if(_doesShoot)
-                StartCoroutine(Shoot());
         }
     }
 
@@ -78,8 +62,7 @@ public class Enemy : MonoBehaviour
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         if (_spawnManager == null)
             Debug.LogError("There is no Spawn Manager.");
-        if (_childSprite == null && _doesShoot)
-            Debug.LogError("There is no child cannon on the enemy.");
+            
     }
 
     private void ActivateShield()
@@ -91,7 +74,6 @@ public class Enemy : MonoBehaviour
 
     public void DestoryMe()
     {
-        //Remove Shield if active
         if(_hasShield)
         {
             _shieldPrefab.SetActive(false);
@@ -100,10 +82,7 @@ public class Enemy : MonoBehaviour
         }
         _speed = 0;
         _audioSource.Play();
-        if (_doesShoot)
-        {
-            _childSprite.enabled = false;
-        }
+
         _anim.SetTrigger("OnEmenyDeath");
         _collider.enabled = false;
         _player.AddScore(_scoreValue);
@@ -135,15 +114,4 @@ public class Enemy : MonoBehaviour
     {
         _speed = speed;
     }
-
-    IEnumerator Shoot()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(Random.Range(_shotTimeMin, _shotTimeMax));
-            GameObject cannonball = Instantiate(_cannonballPrefab, new Vector3(transform.position.x - 1.03f, transform.position.y, transform.position.z), transform.rotation);
-            _spawnManager.SetCannonballParent(cannonball);
-        }
-    }
-
 }

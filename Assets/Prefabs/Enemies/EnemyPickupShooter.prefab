@@ -183,9 +183,8 @@ GameObject:
   - component: {fileID: 3185214938886237930}
   - component: {fileID: 8597945210368630575}
   - component: {fileID: 3980118900675471293}
-  - component: {fileID: 4089775187560612248}
   m_Layer: 0
-  m_Name: Crusaders
+  m_Name: EnemyPickupShooter
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,23 +427,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 4
   _scoreValue: 5
-  _doesShoot: 1
   _explosionClip: {fileID: 8300000, guid: 2f06a16940f472944b444015b478fe00, type: 3}
   _shieldPrefab: {fileID: 1714233708661987663}
   _shieldProbability: 30
---- !u!114 &4089775187560612248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6823697431039320004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0668b64d518a2e044b64d331cd1f3e96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cannonSprite: {fileID: 7810289151825625688}
-  _shotTimeMin: 1.25
-  _shotTimeMax: 2.5
-  _cannonballPrefab: {fileID: 5518830863393429437, guid: d55310fa857096e4c9c04090900443ff, type: 3}
