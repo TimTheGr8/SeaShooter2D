@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         if (_spawnManager == null)
             Debug.LogError("There is no Spawn Manager.");
-            
+            //TODO: fix cannon sprite clean up
     }
 
     private void ActivateShield()

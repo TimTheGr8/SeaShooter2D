@@ -93,12 +93,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1840400111791642839}
-  - component: {fileID: 3980118900675471293}
   - component: {fileID: 1058546268563817153}
   - component: {fileID: 1500079294399982050}
   - component: {fileID: 8953141137096672759}
   - component: {fileID: 5934659994251698819}
   - component: {fileID: 4906139605497851120}
+  - component: {fileID: 3980118900675471293}
   - component: {fileID: 3586684790135053610}
   m_Layer: 0
   m_Name: SmartEnemy
@@ -123,28 +123,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &3980118900675471293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6823697431039320004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b036379f0641b4d8d43d11d0e6fe18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 4
-  _scoreValue: 5
-  _explosionClip: {fileID: 8300000, guid: 2f06a16940f472944b444015b478fe00, type: 3}
-  _cannonballPrefab: {fileID: 0}
-  _childSprite: {fileID: 0}
-  _doesShoot: 0
-  _shotTimeMin: 1
-  _shotTimeMax: 1.5
-  _shieldPrefab: {fileID: 330243686}
-  _shieldProbability: 30
 --- !u!212 &1058546268563817153
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -351,6 +329,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3980118900675471293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823697431039320004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b036379f0641b4d8d43d11d0e6fe18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 4
+  _scoreValue: 5
+  _explosionClip: {fileID: 8300000, guid: 2f06a16940f472944b444015b478fe00, type: 3}
+  _shieldPrefab: {fileID: 330243686}
+  _shieldProbability: 30
 --- !u!114 &3586684790135053610
 MonoBehaviour:
   m_ObjectHideFlags: 0
