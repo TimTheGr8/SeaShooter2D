@@ -76,6 +76,7 @@ public class Player : MonoBehaviour
         MovePlayer();
         if ((Input.GetKeyDown(KeyCode.Space)) && _canShoot)
             ShootCannon();
+        // Turbo
         if(Input.GetKey(KeyCode.LeftShift) && _windSpeedTimer > 0)
         {
             WindSpeedBoost();
@@ -88,6 +89,11 @@ public class Player : MonoBehaviour
         {
             _currentSpeed = _speed;
             StartCoroutine(WindSpeedRecover());
+        }
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            AttractPowerups();
         }
     }
 
@@ -276,6 +282,18 @@ public class Player : MonoBehaviour
     {
         _shieldActive = false;
         _playerShield.SetActive(false);
+    }
+
+    private void AttractPowerups()
+    {
+        foreach (GameObject item in GameObject.FindGameObjectsWithTag("Powerup"))
+        {
+            Powerup powerup = item.GetComponent<Powerup>();
+            if(powerup != null)
+            {
+                powerup.MoveToTarget(transform.position);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

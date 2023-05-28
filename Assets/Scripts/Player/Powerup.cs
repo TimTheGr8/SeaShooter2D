@@ -12,12 +12,23 @@ public class Powerup : MonoBehaviour
     [SerializeField]
     private AudioClip _collectionClip;
 
+    private Vector3 _directionOfTravel;
+
+    private void Start()
+    {
+        _directionOfTravel = Vector3.left;
+    }
 
     void Update()
     {
-        transform.Translate(Vector3.left * _speed * Time.deltaTime);
+        transform.Translate(_directionOfTravel * _speed * Time.deltaTime);
         if (transform.position.x <= -10.75f)
             Destroy(this.gameObject);
+    }
+
+    public void MoveToTarget(Vector3 target)
+    {
+        _directionOfTravel = target - transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
