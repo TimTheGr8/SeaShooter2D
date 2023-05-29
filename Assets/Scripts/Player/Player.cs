@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _tripleShotPrefab;
     [SerializeField]
+    private GameObject _torpedoPrefab;
+    [SerializeField]
     private GameObject _singleCannon;
     [SerializeField]
     private GameObject _tripleShotCannons;
@@ -58,7 +60,7 @@ public class Player : MonoBehaviour
     private int _shieldHits = 0;
     private float _currentSpeed;
     private AudioSource _audioSource;
-    private GameObject _currentCannonball;
+    private GameObject _currentProjectile;
     private float _windSpeedTimer = 100f;
     private CameraShake _camShake;
 
@@ -67,7 +69,7 @@ public class Player : MonoBehaviour
         transform.position = _startingPosition;
         _currentSpeed = _speed;
         _currentAmmo = _maxAmmoCount;
-        _currentCannonball = _singleShotPrefab;
+        _currentProjectile = _singleShotPrefab;
         AssignComponents();
     }
 
@@ -167,7 +169,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                newCannonball = Instantiate(_currentCannonball, new Vector3(transform.position.x + 1.3F, transform.position.y, 0), _spriteRenderer.transform.rotation);
+                newCannonball = Instantiate(_currentProjectile, new Vector3(transform.position.x + 1.3F, transform.position.y, 0), _spriteRenderer.transform.rotation);
             }
 
             _spawnManager.SetCannonballParent(newCannonball);
@@ -242,7 +244,7 @@ public class Player : MonoBehaviour
     {
         _singleCannon.SetActive(false);
         _bombCannon.SetActive(true);
-        _currentCannonball = _bombPrefab;
+        _currentProjectile = _bombPrefab;
         StartCoroutine(BombCountDown());
     }
 
@@ -282,6 +284,12 @@ public class Player : MonoBehaviour
     {
         _shieldActive = false;
         _playerShield.SetActive(false);
+    }
+
+    public void ActivateTorpedo()
+    {
+        _currentProjectile = _torpedoPrefab;
+        StartCoroutine(TorpedoCountDown());
     }
 
     private void AttractPowerups()
@@ -342,7 +350,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(5);
         _bombCannon.SetActive(false);
         _singleCannon.SetActive(true);
-        _currentCannonball = _singleShotPrefab;
+        _currentProjectile = _singleShotPrefab;
     }
 
     IEnumerator WindSpeedRecover()
@@ -358,5 +366,11 @@ public class Player : MonoBehaviour
             _uiManager.UpdateWindSpeedGauge(_windSpeedTimer / 100);
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    IEnumerator TorpedoCountDown()
+    {
+        yield return new WaitForSeconds(1.5f);
+        _currentProjectile = _singleShotPrefab;
     }
 }

@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     private List<GameObject> _enemyPrefab = new List<GameObject>();
     [SerializeField]
     private List<GameObject> _powerupPrefab = new List<GameObject>();
-    [NamedArrayAttribute(new string[] { "Ammo", "TNT", "Wind", "Bomb", "Triple Shot", "Shield", "Health" })]
+    [NamedArrayAttribute(new string[] { "Ammo", "TNT", "Wind", "Bomb", "Triple Shot", "Shield", "Health", "Torpedo" })]
     [SerializeField]
     private int[] _dropTable =
     {
@@ -17,8 +17,9 @@ public class SpawnManager : MonoBehaviour
         10, // Wind
         8, // Bomb
         7, // Triple
-        5, // Shield
+        4, // Shield
         2, // Health
+        1  // Torpedo
     };
     [SerializeField]
     private float _spawnTimer = 3.0f;
