@@ -64,8 +64,6 @@ public class Enemy : MonoBehaviour
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         if (_spawnManager == null)
             Debug.LogError("There is no Spawn Manager.");
-        if (_canonnSprite == null)
-            Debug.LogError("The enemy did not find the cannon sprite.");
     }
 
     private void ActivateShield()
@@ -85,7 +83,8 @@ public class Enemy : MonoBehaviour
         }
         _speed = 0;
         _audioSource.Play();
-        _canonnSprite.gameObject.SetActive(false);
+        if(_canonnSprite != null)
+            _canonnSprite.gameObject.SetActive(false);
         _anim.SetTrigger("OnEmenyDeath");
         _collider.enabled = false;
         _player.AddScore(_scoreValue);
