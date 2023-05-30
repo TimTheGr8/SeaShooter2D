@@ -42,7 +42,7 @@ public class CannonBall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Powerup")
+        if (other.tag == "Powerup" && _isEnemyCannonball)
             Destroy(other.gameObject);
     }
 

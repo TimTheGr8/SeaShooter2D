@@ -24,12 +24,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566395779021088982}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.511, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1840400111791642839}
+  m_Father: {fileID: 6840365665293668260}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &7810289151825625688
@@ -183,7 +183,6 @@ GameObject:
   - component: {fileID: 3185214938886237930}
   - component: {fileID: 8597945210368630575}
   - component: {fileID: 3980118900675471293}
-  - component: {fileID: 4089775187560612248}
   m_Layer: 0
   m_Name: Crusaders
   m_TagString: Enemy
@@ -203,7 +202,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3027102279402004062}
+  - {fileID: 6840365665293668260}
   - {fileID: 1731065617024049965}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -432,21 +431,54 @@ MonoBehaviour:
   _shieldPrefab: {fileID: 1714233708661987663}
   _shieldProbability: 30
   _canonnSprite: {fileID: 7810289151825625688}
---- !u!114 &4089775187560612248
+--- !u!1 &7454051342716423754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6840365665293668260}
+  - component: {fileID: 1650399592}
+  m_Layer: 0
+  m_Name: Cannon Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6840365665293668260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454051342716423754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.511, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3027102279402004062}
+  m_Father: {fileID: 1840400111791642839}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1650399592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6823697431039320004}
+  m_GameObject: {fileID: 7454051342716423754}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0668b64d518a2e044b64d331cd1f3e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canonnSprite: {fileID: 1566395779021088982}
-  _shotTimeMin: 1.25
-  _shotTimeMax: 2.5
+  _cannonSprite: {fileID: 7454051342716423754}
+  _shotTimeMin: 1
+  _shotTimeMax: 3.5
   _cannonballPrefab: {fileID: 5518830863393429437, guid: d55310fa857096e4c9c04090900443ff, type: 3}
   _shootPowerups: 0
   _powerupCheckRadius: 2.5

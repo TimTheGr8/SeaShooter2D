@@ -40,12 +40,14 @@ public class GameManager : MonoBehaviour
     public void NextWave()
     {
         _wave++;
-        _waveEnemyCount = (int)(_waveEnemyCount *_waveCountMultiplyer);
-        Debug.Log($"Wave: {_wave}\nEnemies to spawn: {_waveEnemyCount}");
+        if(_wave == 5)
+        {
+            GameOver();
+        }
     }
 
-    public int WaveEnemyCount()
+    public int WaveCount()
     {
-        return _waveEnemyCount;
+        return _wave;
     }
 }

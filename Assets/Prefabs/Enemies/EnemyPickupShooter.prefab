@@ -215,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cannonSprite: {fileID: 1566395779021088982}
   _shotTimeMin: 1
-  _shotTimeMax: 1.5
+  _shotTimeMax: 3
   _cannonballPrefab: {fileID: 5518830863393429437, guid: d55310fa857096e4c9c04090900443ff, type: 3}
   _shootPowerups: 1
   _powerupCheckRadius: 5

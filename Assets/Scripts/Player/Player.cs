@@ -370,7 +370,7 @@ public class Player : MonoBehaviour
 
     IEnumerator TorpedoCountDown()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         _currentProjectile = _singleShotPrefab;
     }
 }

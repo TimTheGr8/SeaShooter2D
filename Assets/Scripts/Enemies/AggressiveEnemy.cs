@@ -15,10 +15,14 @@ public class AggressiveEnemy : MonoBehaviour
 
     private Player _player;
     private Enemy _enemy;
+    private GameManager _gm;
 
     // Start is called before the first frame update
     void Start()
     {
+        _gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        if (_gm == null)
+            Debug.LogError("Aggressive Enemy cannot find Game Manager.");
         _player = GameObject.Find("Player").GetComponent<Player>();
         if (_player == null)
             Debug.LogError("AggressiveEnemy cannot find the Player");
@@ -30,7 +34,7 @@ public class AggressiveEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(_player.transform.position, transform.position) <= _ramDistance)
+        if (!_gm.gameObject && Vector3.Distance(_player.transform.position, transform.position) <= _ramDistance)
         {
             RamPlayer();
         }

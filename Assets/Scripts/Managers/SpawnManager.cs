@@ -6,6 +6,10 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> _enemyPrefab = new List<GameObject>();
+
+    [SerializeField]
+    private List<Wave> _waves = new List<Wave>();
+
     [SerializeField]
     private List<GameObject> _powerupPrefab = new List<GameObject>();
     [NamedArrayAttribute(new string[] { "Ammo", "TNT", "Wind", "Bomb", "Triple Shot", "Shield", "Health", "Torpedo" })]
@@ -29,25 +33,27 @@ public class SpawnManager : MonoBehaviour
     private GameObject _cannonballContainer;
     
 
-    private bool _spawn = true;
+    private bool _spawnEnemies = true;
+    private bool _spawnPowerups = true;
     private int _enemyCount = 0;
-    private int _enemiesToSpawn;
     private int _dropTableTotal;
+    private int _currentWave;
 
-    private GameManager gm;
+    private GameManager _gm;
 
     void Start()
     {
-        gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        if (gm == null)
+        _gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        if (_gm == null)
             Debug.LogError("There is no Game Manager");
         TotalDropTable();
-        _spawn = true;
+        _spawnEnemies = true;
     }
 
     public void OnPlayerDeath()
     {
-        _spawn = false;
+        _spawnEnemies = false;
+        _spawnPowerups = false;
         StopAllCoroutines();
     }
 
@@ -65,11 +71,11 @@ public class SpawnManager : MonoBehaviour
     public void RemoveEnemy()
     {
         _enemyCount--;
-        if (_enemyCount == 0 && _enemiesToSpawn == gm.WaveEnemyCount())
+        if (_enemyCount == 0 && !_spawnEnemies)
         {
             StopCoroutine(SpawnEnemies());
-            gm.NextWave();
-            _enemiesToSpawn = 0;
+            _gm.NextWave();
+            _spawnEnemies = true;
             StartCoroutine(SpawnEnemies());
         }
     }
@@ -112,21 +118,24 @@ public class SpawnManager : MonoBehaviour
     IEnumerator SpawnEnemies()
     {
         yield return new WaitForSeconds(1.5f);
-        while (_spawn && _enemiesToSpawn < gm.WaveEnemyCount())
+        while(_spawnEnemies)
         {
-            int randomEnemy = Random.Range(0, _enemyPrefab.Count);
-            GameObject newEnemy = Instantiate(_enemyPrefab[randomEnemy], new Vector3(11, Random.Range(-3f, 5.5f), 0), _enemyPrefab[randomEnemy].transform.rotation);
-            newEnemy.transform.parent = _enemyContainer.transform;
-            _enemiesToSpawn++;
-            _enemyCount++;
-            yield return new WaitForSeconds(_spawnTimer);
+            var currentWave = _waves[(_gm.WaveCount() - 1)].GetEnemies();
+            foreach (var obj in currentWave)
+            {
+                GameObject newEnemy = Instantiate(obj, new Vector3(11, Random.Range(-3f, 5.5f), 0), obj.transform.rotation);
+                newEnemy.transform.parent = _enemyContainer.transform;
+                _enemyCount++;
+                yield return new WaitForSeconds(_spawnTimer);
+            }
+            _spawnEnemies = false;
         }
     }
 
     IEnumerator SpawnPowerups()
     {
         yield return new WaitForSeconds(3.0f);
-        while (_spawn)
+        while (_spawnPowerups)
         {
             int randomTime = Random.Range(3, 8);
             GameObject newPowerup = Instantiate(_powerupPrefab[RandomDrop()], new Vector3(11, Random.Range(-3f, 5.5f), 0), Quaternion.identity);

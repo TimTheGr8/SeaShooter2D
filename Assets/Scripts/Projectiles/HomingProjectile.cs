@@ -7,8 +7,6 @@ public class HomingProjectile : MonoBehaviour
     [SerializeField]
     private float _speed = 5.5f;
     [SerializeField]
-    private float _targetRadius = 5.0f;
-    [SerializeField]
     private float _rotationModifier = 0;
 
     // Update is called once per frame
@@ -17,7 +15,7 @@ public class HomingProjectile : MonoBehaviour
         CheckForTarget();
         transform.Translate(Vector3.up * _speed * Time.deltaTime);
 
-        if (transform.position.x > 11)
+        if (transform.position.x > 11 || transform.position.y > 7.5 || transform.position.y < -5.5)
             Destroy(this.gameObject);
     }
 
@@ -41,11 +39,11 @@ public class HomingProjectile : MonoBehaviour
         }
         if(closestTarget != null)
         {
-            TargetPowerup(closestTarget);
+            TargetEnemy(closestTarget);
         }
     }
 
-    private void TargetPowerup(GameObject target)
+    private void TargetEnemy(GameObject target)
     {
         Vector3 vectorToTarget = target.transform.position - transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, (vectorToTarget.x)) * Mathf.Rad2Deg - _rotationModifier;
