@@ -22,6 +22,10 @@ public class UIManager : MonoBehaviour
     private GameObject _restartText;
     [SerializeField]
     private Image _windSpeedGauge;
+    [SerializeField]
+    private Image _bossHealthBar;
+    [SerializeField]
+    private Sprite _bossLifefull, _bossLifeMed, _bossLifeLow;
 
     private GameManager _gameManager;
 
@@ -72,6 +76,27 @@ public class UIManager : MonoBehaviour
     public void UpdateWindSpeedGauge(float timeRemaining)
     {
         _windSpeedGauge.fillAmount = timeRemaining;
+    }
+
+    public void EnableBossLife()
+    {
+        _bossHealthBar.transform.parent.gameObject.SetActive(true);
+    }
+
+    public void UpdateBossHealth(float healthRemaining)
+    {
+        _bossHealthBar.fillAmount = healthRemaining;
+        switch (healthRemaining)
+        {
+            case 0.6f:
+                _bossHealthBar.sprite = _bossLifeMed;
+                break;
+            case 0.3f:
+                _bossHealthBar.sprite = _bossLifeLow;
+                break;
+            default:
+                break;
+        }
     }
 
    IEnumerator Flicker()

@@ -15,6 +15,8 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private bool _shootPowerups = false;
     [SerializeField]
+    private bool _bossShooter = false;
+    [SerializeField]
     private float _powerupCheckRadius = 2.5f;
     [SerializeField]
     private float _rotationModifier = 0;
@@ -22,6 +24,7 @@ public class Shooter : MonoBehaviour
     private SpawnManager _spawnManager;
     private bool _shootingPowerup = false;
     private float _currentShotMin, _currentShotMax;
+    private BossEnemy _boss;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,9 @@ public class Shooter : MonoBehaviour
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         if (_spawnManager == null)
             Debug.LogError("There is no Spawn Manager.");
+        _boss = GetComponentInParent<BossEnemy>();
+        if (_boss == null)
+            Debug.LogError("Shooter could not find the Boss Enemy.");
 
         StartCoroutine(Shoot());
     }
@@ -86,10 +92,20 @@ public class Shooter : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 4f);
     }
 
+    public void ChangeProjectile()
+    {
+        List<GameObject> projectiles = _boss.ChangeProjectile();
+        int rand = Random.Range(0, projectiles.Count);
+        _cannonballPrefab = projectiles[rand];
+    }
+
     IEnumerator Shoot()
     {
         while (true)
         {
+            if (_bossShooter)
+                ChangeProjectile();
+
             yield return new WaitForSeconds(Random.Range(_currentShotMin, _currentShotMax));
             GameObject cannonball = Instantiate(_cannonballPrefab, new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), transform.rotation);
             _spawnManager.SetCannonballParent(cannonball);
