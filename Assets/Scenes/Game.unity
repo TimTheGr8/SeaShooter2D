@@ -1747,7 +1747,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377800178}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0668b64d518a2e044b64d331cd1f3e96, type: 3}
   m_Name: 
@@ -1758,7 +1758,7 @@ MonoBehaviour:
   _cannonballPrefab: {fileID: 5518830863393429437, guid: 2b02b2574dc213444b84fc595c20aba1, type: 3}
   _shootPowerups: 1
   _bossShooter: 1
-  _powerupCheckRadius: 5
+  _powerupCheckRadius: 2.5
   _rotationModifier: 90
 --- !u!1001 &399194175
 PrefabInstance:
@@ -5390,6 +5390,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!1001 &1330299009
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1840400111791642839, guid: 9fa0b5770eb9c6643b09da34fa575372, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840400111791642839, guid: 9fa0b5770eb9c6643b09da34fa575372, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840400111791642839, guid: 9fa0b5770eb9c6643b09da34fa575372, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840400111791642839, guid: 9fa0b5770eb9c6643b09da34fa575372, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840400111791642839, guid: 9fa0b5770eb9c6643b09da34fa575372, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840400111791642839, guid: 9fa0b5770eb9c6643b09da34fa575372, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840400111791642839, guid: 9fa0b5770eb9c6643b09da34fa575372, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840400111791642839, guid: 9fa0b5770eb9c6643b09da34fa575372, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840400111791642839, guid: 9fa0b5770eb9c6643b09da34fa575372, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840400111791642839, guid: 9fa0b5770eb9c6643b09da34fa575372, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840400111791642839, guid: 9fa0b5770eb9c6643b09da34fa575372, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823697431039320004, guid: 9fa0b5770eb9c6643b09da34fa575372, type: 3}
+      propertyPath: m_Name
+      value: AggressiveEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823697431039320004, guid: 9fa0b5770eb9c6643b09da34fa575372, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9fa0b5770eb9c6643b09da34fa575372, type: 3}
 --- !u!1001 &1348123292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7598,7 +7659,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798730438}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 12.9, y: 0, z: 0}
+  m_LocalPosition: {x: 7.96, y: 0, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7621,7 +7682,6 @@ MonoBehaviour:
   _projectilePrefabs:
   - {fileID: 5518830863393429437, guid: 2b02b2574dc213444b84fc595c20aba1, type: 3}
   - {fileID: 3259742454066050448, guid: 9c6c7277a7bbf0744be773a939bb7b58, type: 3}
-  - {fileID: 3699353702639285690, guid: e2fdb24b78eeebc48ba03a160e6b17e8, type: 3}
   _startingPosition: {x: 5, y: 0, z: 0}
   _explosionPrefab: {fileID: 7581615170531675970, guid: 896537b36b5cce94bb1656a8291a03fd, type: 3}
 --- !u!50 &1798730442

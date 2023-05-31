@@ -17,6 +17,7 @@ public class BossEnemy : MonoBehaviour
     private UIManager _uiManager;
     private GameManager _gm;
     private Collider2D _collider;
+    private int _direction = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +41,19 @@ public class BossEnemy : MonoBehaviour
         _shooter = GetComponentInChildren<Shooter>();
         if (_shooter == null)
             Debug.LogError("Boss Enemy could not find Shooter.");
-        _shooter.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(_inPosition)
+        {
+            transform.Translate(_direction * Vector3.right * 3 * Time.deltaTime);
+            if (transform.position.y >= 5.5f)
+                _direction = -1;
+            if (transform.position.y <= -3.5f)
+                _direction = 1;
+        }
     }
 
     private void CheckPosition()
@@ -55,6 +63,8 @@ public class BossEnemy : MonoBehaviour
             _inPosition = true;
             _uiManager.EnableBossLife();
             _collider.enabled = true;
+            _shooter.enabled = true;
+            StartCoroutine(ChooseDirection());
         }
     }
 
@@ -95,6 +105,18 @@ public class BossEnemy : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, _startingPosition, 2.5f * Time.deltaTime);
             CheckPosition();
             yield return new WaitForEndOfFrame();
+        }
+    }
+
+    IEnumerator ChooseDirection()
+    {
+        while (_currentLife > 0)
+        {
+
+            Debug.Log(_direction);
+            float rand = Random.Range(0f, 1f);
+            _direction = rand >= 0.5f ? -1 : 1;
+            yield return new WaitForSeconds(.75f);
         }
     }
 }
