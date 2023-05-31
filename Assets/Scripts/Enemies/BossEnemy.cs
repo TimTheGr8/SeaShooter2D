@@ -15,19 +15,32 @@ public class BossEnemy : MonoBehaviour
     private Shooter _shooter;
     private float _currentLife = 100;
     private UIManager _uiManager;
+    private GameManager _gm;
+    private Collider2D _collider;
 
     // Start is called before the first frame update
     void Start()
     {
+        AssignComponents();
+
+        StartCoroutine(MoveToPosition());
+    }
+
+    private void AssignComponents()
+    {
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         if (_uiManager == null)
             Debug.LogError("Boss Enemy could not find the UI Manager.");
+        _gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        if (_gm == null)
+            Debug.LogError("Boss Enemy could not find the Game Manager.");
+        _collider = GetComponent<Collider2D>();
+        if (_collider == null)
+            Debug.LogError("The Boss Enemy could not find it's collider");
         _shooter = GetComponentInChildren<Shooter>();
         if (_shooter == null)
             Debug.LogError("Boss Enemy could not find Shooter.");
         _shooter.gameObject.SetActive(false);
-
-        StartCoroutine(MoveToPosition());
     }
 
     // Update is called once per frame
@@ -41,6 +54,7 @@ public class BossEnemy : MonoBehaviour
         {
             _inPosition = true;
             _uiManager.EnableBossLife();
+            _collider.enabled = true;
         }
     }
 
@@ -48,6 +62,11 @@ public class BossEnemy : MonoBehaviour
     {
         _currentLife -= 10;
         _uiManager.UpdateBossHealth(_currentLife / 100);
+        if (_currentLife == 0)
+        {
+            Destroy(this.gameObject);
+            _gm.GameOver();
+        }
     }
 
     public List<GameObject> ChangeProjectile()
