@@ -26,6 +26,8 @@ public class UIManager : MonoBehaviour
     private Image _bossHealthBar;
     [SerializeField]
     private Sprite _bossLifefull, _bossLifeMed, _bossLifeLow;
+    [SerializeField]
+    private GameObject _bossDefeatedMessage;
 
     private GameManager _gameManager;
 
@@ -83,16 +85,24 @@ public class UIManager : MonoBehaviour
         _bossHealthBar.transform.parent.gameObject.SetActive(true);
     }
 
+    public void EnableBossDefeatedMessage()
+    {
+        StartCoroutine(Flicker());
+        _bossDefeatedMessage.SetActive(true);
+        _restartText.SetActive(true);
+        _gameManager.GameOver();
+    }
+
     public void UpdateBossHealth(float healthRemaining)
     {
         _bossHealthBar.fillAmount = healthRemaining;
         switch (healthRemaining)
         {
-            case 0.6f:
-                _bossHealthBar.sprite = _bossLifeMed;
-                break;
-            case 0.3f:
+            case <= 0.3f:
                 _bossHealthBar.sprite = _bossLifeLow;
+                break;
+            case <= 0.6f:
+                _bossHealthBar.sprite = _bossLifeMed;
                 break;
             default:
                 break;

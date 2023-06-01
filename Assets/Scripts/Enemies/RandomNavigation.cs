@@ -46,7 +46,6 @@ public class RandomNavigation : MonoBehaviour
     {
         int newTarget = Random.Range(0, _navigationPoints.Count);
         _destination = _navigationPoints[newTarget];
-        Debug.Log(_destination);
     }
 
     private float CheckDistance()

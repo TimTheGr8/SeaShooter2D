@@ -7,6 +7,8 @@ public class BossEnemy : MonoBehaviour
     [SerializeField]
     private List<GameObject> _projectilePrefabs = new List<GameObject>();
     [SerializeField]
+    private List<GameObject> _droppable = new List<GameObject>();
+    [SerializeField]
     private Vector3 _startingPosition;
     [SerializeField]
     private GameObject _explosionPrefab;
@@ -65,6 +67,7 @@ public class BossEnemy : MonoBehaviour
             _collider.enabled = true;
             _shooter.enabled = true;
             StartCoroutine(ChooseDirection());
+            StartCoroutine(SpawnDroppables());
         }
     }
 
@@ -75,6 +78,7 @@ public class BossEnemy : MonoBehaviour
         if (_currentLife == 0)
         {
             Destroy(this.gameObject);
+            _uiManager.EnableBossDefeatedMessage();
             _gm.GameOver();
         }
     }
@@ -86,7 +90,7 @@ public class BossEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Cannon Ball")
+        if(other.tag == "Cannon Ball" && !_gm.IsGameOver())
         {
             CannonBall ball = other.GetComponent<CannonBall>();
             if(ball != null && !ball.IsEnemyCannonball())
@@ -110,13 +114,25 @@ public class BossEnemy : MonoBehaviour
 
     IEnumerator ChooseDirection()
     {
-        while (_currentLife > 0)
+        while (_currentLife > 0 && !_gm.IsGameOver())
         {
-
-            Debug.Log(_direction);
             float rand = Random.Range(0f, 1f);
             _direction = rand >= 0.5f ? -1 : 1;
             yield return new WaitForSeconds(.75f);
+        }
+    }
+
+    IEnumerator SpawnDroppables()
+    {
+        while(_currentLife > 0 && !_gm.IsGameOver())
+        {
+            float transformY = 0;
+            float shipSide = Random.Range(0.0f, 1f);
+
+            transformY = shipSide <= 0.5f ? -0.83f : 0.83f;
+            
+            Instantiate(_droppable[Random.Range(0, _droppable.Count)], new Vector3(transform.position.x -1.59f, transform.position.y + transformY, 0f), transform.rotation);
+            yield return new WaitForSeconds(Random.Range(3f, 5f));
         }
     }
 }

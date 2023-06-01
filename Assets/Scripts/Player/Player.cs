@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
     private GameObject _currentProjectile;
     private float _windSpeedTimer = 100f;
     private CameraShake _camShake;
+    private GameManager _gm;
 
     void Start()
     {
@@ -75,28 +76,32 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        MovePlayer();
-        if ((Input.GetKeyDown(KeyCode.Space)) && _canShoot)
-            ShootCannon();
-        // Turbo
-        if(Input.GetKey(KeyCode.LeftShift) && _windSpeedTimer > 0)
+        if(!_gm.IsGameOver())
         {
-            WindSpeedBoost();
-        }
-        else
-        {
-            _currentSpeed = _speed;
-        }
-        if(Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            _currentSpeed = _speed;
-            StartCoroutine(WindSpeedRecover());
-        }
+            MovePlayer();
+            if ((Input.GetKeyDown(KeyCode.Space)) && _canShoot)
+                ShootCannon();
+            // Turbo
+            if (Input.GetKey(KeyCode.LeftShift) && _windSpeedTimer > 0)
+            {
+                WindSpeedBoost();
+            }
+            else
+            {
+                _currentSpeed = _speed;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                _currentSpeed = _speed;
+                StartCoroutine(WindSpeedRecover());
+            }
 
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            AttractPowerups();
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                AttractPowerups();
+            }
         }
+        
     }
 
     private void AssignComponents()
@@ -121,6 +126,9 @@ public class Player : MonoBehaviour
         _camShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
         if (_camShake == null)
             Debug.LogError("There is no Camera Shake script.");
+        _gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        if (_gm == null)
+            Debug.LogError("The player could not find the Game Manager.");
     }
 
     private void MovePlayer()
@@ -306,7 +314,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Cannon Ball")
+        if(other.tag == "Cannon Ball" && !_gm.IsGameOver())
         {
             Destroy(other);
             DamagePlayer();
