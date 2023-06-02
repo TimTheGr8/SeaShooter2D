@@ -32,10 +32,12 @@ public class Shooter : MonoBehaviour
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         if (_spawnManager == null)
             Debug.LogError("There is no Spawn Manager.");
-        _boss = GetComponentInParent<BossEnemy>();
-        if (_boss == null)
-            Debug.LogError("Shooter could not find the Boss Enemy.");
-
+        if (_bossShooter)
+        {
+            _boss = GetComponentInParent<BossEnemy>();
+            if (_boss == null)
+                Debug.LogError("Shooter could not find the Boss Enemy.");
+        }
         StartCoroutine(Shoot());
     }
 

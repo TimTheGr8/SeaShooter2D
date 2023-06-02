@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     public void NextWave()
     {
         _wave++;
-        if(_wave == 5)
+        if(_wave > 5)
         {
             GameOver();
         }

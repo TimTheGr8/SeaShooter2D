@@ -9,6 +9,7 @@ public class SmartEnemy : MonoBehaviour
 
     private GameObject _player;
     private bool _bombDropped = false;
+    private GameManager _gm;
 
     // Start is called before the first frame update
     void Start()
@@ -16,17 +17,20 @@ public class SmartEnemy : MonoBehaviour
         _player = GameObject.Find("Player");
         if (_player == null)
             Debug.LogError("The Smart Enemy could not find the player.");
+        _gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        if (_gm == null)
+            Debug.LogError("The Smart Enemy cannot find the Game Manager.");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(IsBehindPlayer() && !_bombDropped)
+        if(!_gm.IsGameOver() && IsBehindPlayer() && !_bombDropped)
         {
             DropBomb();
         }
 
-        if (!IsBehindPlayer())
+        if (!_gm.IsGameOver() && !IsBehindPlayer())
             _bombDropped = false;
     }
 
