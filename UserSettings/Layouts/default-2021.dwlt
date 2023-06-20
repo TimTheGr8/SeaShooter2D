@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1007
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 19
+  controlID: 102
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 112
+  controlID: 107
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 29
+  controlID: 19
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -656,9 +656,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 6.5709076, y: -0.55854857, z: 0.079453036}
+    m_Target: {x: 0.36760092, y: 0.31204924, z: 0.03434072}
     speed: 2
-    m_Value: {x: 6.644435, y: -0.48757863, z: 0.078257404}
+    m_Value: {x: 0.36760092, y: 0.31204924, z: 0.03434072}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 31
@@ -709,9 +709,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 2.5373695
+    m_Target: 5.8558936
     speed: 2
-    m_Value: 2.6569314
+    m_Value: 5.8558936
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -895,7 +895,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -715548
+  m_LastSelectedObjectID: 22830
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -928,9 +928,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 6af8ffff06fbfffffa5a0000
+      m_SelectedIDs: fa5a0000
+      m_LastClickedID: 23290
+      m_ExpandedIDs: 06fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -996,7 +996,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Projectiles/Boss Weapons
+    - Assets/Prefabs/Projectiles
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 0
@@ -1011,7 +1011,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: a4570000
     m_LastClickedID: 22436
-    m_ExpandedIDs: 00000000965f00001e60000020600000226000002460000026600000286000002a6000002c6000002e6000003060000032600000
+    m_ExpandedIDs: 00000000a85f000030600000326000003460000036600000386000003a6000003c6000003e6000004060000042600000446000004660000048600000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1036,10 +1036,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 411}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000965f00001e60000020600000226000002460000026600000286000002a6000002c6000002e60000030600000326000007a60000080600000a8600000b4600000b6600000
+    m_ExpandedIDs: ffffffff00000000a85f000030600000326000003460000036600000386000003a6000003c6000003e6000004060000042600000446000004660000048600000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
